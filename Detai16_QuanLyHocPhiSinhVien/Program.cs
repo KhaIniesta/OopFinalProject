@@ -192,7 +192,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		
 			while (true)
 			{
-				Console.WriteLine("Nhập vào STT của sinh viên muốn chỉnh sửa thông tin trong danh sách : ");
+				Console.WriteLine("Nhập vào STT của sinh viên muốn chỉnh sửa thông tin trong danh sách: ");
 				index = XuLiDauvao.laySoNguyenKhongAm();
 
 				if (index == 0 || index > DS_SinhVien.Count)
@@ -292,6 +292,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					sinhVien.SoTinChilyThuyet = XuLiDauvao.laySoNguyenKhongAm();
 				}
 				Console.WriteLine("Đã thay đổi thông tin sinh viên!");
+				Console.ReadKey();
 				return;
 			}
 
@@ -392,18 +393,21 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		public static void XuatDanhSachSV_5(ref List<IYeuCau> DS_SinhVien)
 		{
 			string First_Line = "|STT".PadRight(5) + "|Họ và tên".PadRight(20) + "|Giới tính".PadRight(11) + "|Ngày sinh".PadRight(12) + "|MSSV".PadRight(10)
-				+ "|Niên khoá".PadRight(10) + "|Quê quán(tỉnh)".PadRight(20) + "|Tổng học phí(VNĐ)".PadRight(20) + "|";
-			string Second_Line = "+----+-------------------+----------+-----------+---------+---------+-------------------+-------------------+";
+				+ "|Loại sinh viên".PadRight(15) + "|Niên khoá".PadRight(10) + "|Quê quán(tỉnh)".PadRight(20) + "|Tổng học phí(VNĐ)".PadRight(20) + "|";
+			string Second_Line = "+----+-------------------+----------+-----------+---------+--------------+---------+-------------------+-------------------+";
 			string Record_Line;
 
 			Console.WriteLine();
 			Console.WriteLine(Second_Line);
 			Console.WriteLine(First_Line);
 			Console.WriteLine(Second_Line);
+			bool laSV_CaoDang = true;
 			int i = 1;
 			foreach (IYeuCau SV in DS_SinhVien)
 			{
-				Record_Line = "|" + i.ToString().PadRight(4) + "|" + SV.Ten.PadRight(19) + "|" + SV.GioiTinh.PadRight(10) + "|" + SV.NgaySinh.ToString("dd/MM/yyyy").PadRight(11) + "|" + SV.MaSoSinhVien.PadRight(9)
+				laSV_CaoDang = SV is SinhVienCaoDang;
+				Record_Line = "|" + i.ToString().PadRight(4) + "|" + SV.Ten.PadRight(19) + "|" + SV.GioiTinh.PadRight(10) + "|"
+					+ SV.NgaySinh.ToString("dd/MM/yyyy").PadRight(11) + "|" + SV.MaSoSinhVien.PadRight(9) + "|" + (laSV_CaoDang? "Cao đẳng":"Trung cấp").PadRight(14)
 					+ "|" + SV.KhoaHoc.TenNienKhoa.PadRight(9) + "|" + SV.QueQuan.Tinh.PadRight(19) + "|" + String.Format("{0:n0}", SV.tinhTienHocPhi()).PadRight(19) + "|";
 				Console.WriteLine(Record_Line);
 				i++;
@@ -524,7 +528,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			while (true)
 			{
 				Console.Clear();
-				Console.WriteLine("\tCHƯƠNG TRÌNH QUẢN LÝ SINH VIÊN CỦA TRƯỜNG ĐẠI HỌC");
+				Console.ForegroundColor = ConsoleColor.DarkYellow;
+				Console.WriteLine("\n\tCHƯƠNG TRÌNH QUẢN LÝ SINH VIÊN CỦA TRƯỜNG ĐẠI HỌC");
 
 				Console.WriteLine("\n\t\t1. Thêm sinh viên vào danh sách");
 				Console.WriteLine("\t\t2. Xóa sinh viên khỏi danh sách");
@@ -534,9 +539,9 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				Console.WriteLine("\t\t6. Tìm kiếm sinh viên");
 				Console.WriteLine("\t\t7. Số lượng các đối tượng");
 				Console.WriteLine("\t\t8. Dừng chương trình");
-				Console.WriteLine("\nSố lượng sinh viên trong danh sách: " + DS_SinhVien.Count);
-
-				Console.Write("\nNhập lựa chọn: "); luaChon = Console.ReadLine();
+				Console.WriteLine("\n Số lượng sinh viên trong danh sách: " + DS_SinhVien.Count);
+				Console.ResetColor();
+				Console.Write("\n Nhập lựa chọn: "); luaChon = Console.ReadLine();
 
 				if (luaChon == "1")
 					ThemSinhVien_1(ref DS_SinhVien);

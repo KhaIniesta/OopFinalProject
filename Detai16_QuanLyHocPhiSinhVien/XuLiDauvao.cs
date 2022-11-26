@@ -83,6 +83,5 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			string temp = tiengVietCoDau.Normalize(NormalizationForm.FormD);
 			return regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
 		}
-		}
 	}
 }
