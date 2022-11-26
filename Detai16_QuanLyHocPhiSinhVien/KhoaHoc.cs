@@ -36,6 +36,17 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		}
 
 		//Method:
+		public void ThayDoiKhoaHoc()
+		{
+			Console.WriteLine("\tTen nien khoa moi : ");
+			this.TenNienKhoa = Console.ReadLine();
+			Console.WriteLine("\tNam bat dau moi : ");
+			this.NamBatDau = XuLiDauvao.laySoNguyenKhongAm();
+			Console.WriteLine("\tNam ket thuc moi : ");
+			this.NamKetThuc = XuLiDauvao.laySoNguyenKhongAm();
+
+		}
+
 		public string toString()
 		{
 			return "\tTen nien hoc:".PadRight(15) + tenNienKhoa + "\n\tNam bat dau:".PadRight(15) + namBatDau + "\n\tNam ket thuc:".PadRight(15) + namKetThuc; 
