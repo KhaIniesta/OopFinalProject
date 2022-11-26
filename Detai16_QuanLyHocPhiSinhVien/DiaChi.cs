@@ -35,9 +35,20 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			this.Huyen = huyen;
 			this.Xa = xa;
 		}
+
 		public string toString()
 		{
 			return $"{xa}, {huyen}, {tinh}";
+		}
+
+		public void ThayDoiDiaChi()
+		{
+			Console.Write("\tTinh : ");
+			this.Tinh = Console.ReadLine();
+			Console.Write("\tHuyen : ");
+			this.Huyen = Console.ReadLine();
+			Console.Write("\tXa : ");
+			this.Xa = Console.ReadLine();
 		}
 	}
 }
