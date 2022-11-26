@@ -1,9 +1,9 @@
 ﻿/*
-Nhom 21, chu de 16:
-Thanh vien nhom :
-	Le Minh Kha - mssv 21110890
-	Tran Quy Thuong - mssv 21110672
-	Nguyen Dieu Huong - mssv 21110489
+Nhóm 21, chủ đề 16:
+Thành viên nhóm :
+	Lê Minh Kha - mssv 21110890
+	Trần Quý Thương - mssv 21110672
+	Nguyễn Diệu Hương - mssv 21110489
 */
 using System;
 using System.Collections.Generic;
@@ -70,16 +70,16 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		public virtual string xuatThongTinNganGon()
 		{
 			string ans = "Họ và tên:".PadRight(14) + Ten + "\nMSSV:".PadRight(15) + maSoSinhVien
-				+ "\nKhoá học:".PadRight(15) + KhoaHoc.TenNienKhoa + "\nTiền BH:".PadRight(15) + TienBaoHiem.ToString()
-				+ "\nPhụ thu:".PadRight(15) + phuThu.ToString();
+				+ "\nKhoá học:".PadRight(15) + KhoaHoc.TenNienKhoa + "\nTiền BH:".PadRight(15) + String.Format("{0:n0}", TienBaoHiem) + " VNĐ"
+				+ "\nPhụ thu:".PadRight(15) + String.Format("{0:n0}", PhuThu) + " VNĐ";
 			return ans;
 		}
 
 		public virtual string xuatThongTinDayDu()
 		{
 			string ans = base.toString() + "\nMSSV:".PadRight(15) + maSoSinhVien
-				+ "\nKhoá hoc:".PadRight(15) + KhoaHoc.TenNienKhoa + "\nTiền BH:".PadRight(15) + TienBaoHiem.ToString()
-				+ "\nPhụ thu:".PadRight(15) + phuThu.ToString();
+				+ "\nKhoá hoc:".PadRight(15) + KhoaHoc.TenNienKhoa + "\nTiền BH:".PadRight(15) + String.Format("{0:n0}", TienBaoHiem) + " VNĐ"
+				+ "\nPhụ thu:".PadRight(15) + String.Format("{0:n0}", PhuThu) + " VNĐ";
 			return ans;
 		}
 	}

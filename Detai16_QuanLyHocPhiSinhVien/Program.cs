@@ -1,9 +1,9 @@
 ﻿/*
-Nhom 21, chu de 16:
-Thanh vien nhom :
-	Le Minh Kha - mssv 21110890
-	Tran Quy Thuong - mssv 21110672
-	Nguyen Dieu Huong - mssv 21110489
+Nhóm 21, chủ đề 16:
+Thành viên nhóm :
+	Lê Minh Kha - mssv 21110890
+	Trần Quý Thương - mssv 21110672
+	Nguyễn Diệu Hương - mssv 21110489
 */
 using System;
 using System.Collections.Generic;
@@ -391,21 +391,25 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public static void XuatDanhSachSV_5(ref List<IYeuCau> DS_SinhVien)
 		{
-			string First_Line = "|Họ và tên".PadRight(20) + "|Giới tính".PadRight(11) + "|Ngày sinh".PadRight(12) + "|MSSV".PadRight(10)
-				+ "|Niên khoá".PadRight(10) + "|Quê quán(tỉnh)".PadRight(20) + "|Tổng học phí".PadRight(15) + "|";
-			string Second_Line = "+-------------------+----------+-----------+---------+---------+-------------------+--------------+";
+			string First_Line = "|STT".PadRight(5) + "|Họ và tên".PadRight(20) + "|Giới tính".PadRight(11) + "|Ngày sinh".PadRight(12) + "|MSSV".PadRight(10)
+				+ "|Niên khoá".PadRight(10) + "|Quê quán(tỉnh)".PadRight(20) + "|Tổng học phí(VNĐ)".PadRight(20) + "|";
+			string Second_Line = "+----+-------------------+----------+-----------+---------+---------+-------------------+-------------------+";
 			string Record_Line;
 
 			Console.WriteLine();
+			Console.WriteLine(Second_Line);
 			Console.WriteLine(First_Line);
 			Console.WriteLine(Second_Line);
+			int i = 1;
 			foreach (IYeuCau SV in DS_SinhVien)
 			{
-				Record_Line = "|" + SV.Ten.PadRight(19) + "|" + SV.GioiTinh.PadRight(10) + "|" + SV.NgaySinh.ToString("dd/MM/yyyy").PadRight(11) + "|" + SV.MaSoSinhVien.PadRight(9)
-					+ "|" + SV.KhoaHoc.TenNienKhoa.PadRight(9) + "|" + SV.QueQuan.Tinh.PadRight(19) + "|" + SV.tinhTienHocPhi().ToString().PadRight(14) + "|";
+				Record_Line = "|" + i.ToString().PadRight(4) + "|" + SV.Ten.PadRight(19) + "|" + SV.GioiTinh.PadRight(10) + "|" + SV.NgaySinh.ToString("dd/MM/yyyy").PadRight(11) + "|" + SV.MaSoSinhVien.PadRight(9)
+					+ "|" + SV.KhoaHoc.TenNienKhoa.PadRight(9) + "|" + SV.QueQuan.Tinh.PadRight(19) + "|" + String.Format("{0:n0}", SV.tinhTienHocPhi()).PadRight(19) + "|";
 				Console.WriteLine(Record_Line);
+				i++;
 			}
-			Console.Write("An một nút bất kì để tiếp tục! ");
+			Console.WriteLine(Second_Line);
+			Console.Write("\nẤn một nút bất kì để tiếp tục! ");
 			Console.ReadKey();
 		}
 
@@ -442,7 +446,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				else if (input == "2")
 				{
-					Console.Write("Nhap MSSV cần tìm: ");
+					Console.Write("Nhập MSSV cần tìm: ");
 					input = Console.ReadLine();
 					input.Trim();
 					foreach (IYeuCau SV in DS_SinhVien)
@@ -509,7 +513,6 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.Write("Nhấn nút bất kì để về MENU chính! ");
 			Console.ReadKey();
 		}
-
 
 		static void Main(string[] args)
 		{
