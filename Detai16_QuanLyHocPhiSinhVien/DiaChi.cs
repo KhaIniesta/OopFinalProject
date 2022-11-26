@@ -43,11 +43,11 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public void ThayDoiDiaChi()
 		{
-			Console.Write("\tTinh : ");
+			Console.Write("\tTỉnh: ");
 			this.Tinh = Console.ReadLine();
-			Console.Write("\tHuyen : ");
+			Console.Write("\tHuyện: ");
 			this.Huyen = Console.ReadLine();
-			Console.Write("\tXa : ");
+			Console.Write("\tXã: ");
 			this.Xa = Console.ReadLine();
 		}
 	}

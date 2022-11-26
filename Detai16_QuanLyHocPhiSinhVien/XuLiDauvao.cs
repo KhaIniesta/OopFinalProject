@@ -7,6 +7,7 @@ Thanh vien nhom :
 */
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Text;
 
 namespace Detai16_QuanLyHocPhiSinhVien
@@ -16,7 +17,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 	{
 		public static int laySoNguyenKhongAm()
 		{
-			Console.Write("Nhap vao : ");
+			Console.Write("Nhập vào: ");
 			while (true)
 			{
 				string input = Console.ReadLine();
@@ -27,17 +28,17 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				catch
 				{
-					Console.Write("Vui long nhap lai: ");
+					Console.Write("Vui lòng nhập lại: ");
 					continue;
 				}
 				if (ans >= 0) return ans;
-				else Console.Write("Vui long nhap lai : ");
+				else Console.Write("Vui lòng nhập lại : ");
 			}
 		}
 
 		public static double LaySoThucKhongAm()
 		{
-			Console.Write("Nhap vao : ");
+			Console.Write("Nhập vào: ");
 			while (true)
 			{
 				string input = Console.ReadLine();
@@ -48,11 +49,11 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				catch
 				{
-					Console.Write("Vui long nhap lai: ");
+					Console.Write("Vui lòng nhập lại: ");
 					continue;
 				}
 				if (ans >= 0) return ans;
-				else Console.Write("Vui long nhap lai : ");
+				else Console.Write("Vui lòng nhập lại: ");
 			}
 		}
 
@@ -68,13 +69,19 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				catch
 				{
-					Console.Write("Khong hop le, vui long nhap lai!\n");
-					Console.Write("Ngay sinh (dd/MM/yyyy): ");
+					Console.Write("Không hợp lệ, vui lòng nhập lại!\n");
+					Console.Write("Ngày sinh (dd/MM/yyyy): ");
 					continue;
 				}
 				break;
 			}
 			return myDay;
+		}
+		public static string chuyenTiengVietKhongDau(string tiengVietCoDau)
+		{
+			Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
+			string temp = tiengVietCoDau.Normalize(NormalizationForm.FormD);
+			return regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
 		}
 	}
 }

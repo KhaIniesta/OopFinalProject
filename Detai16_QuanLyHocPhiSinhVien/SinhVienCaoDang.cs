@@ -49,10 +49,10 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		public override void nhapThongTin()
 		{
 			base.nhapThongTin();
-			Console.Write("Nhap so tin chi ly thuyet: "); this.soTinChilyThuyet = XuLiDauvao.laySoNguyenKhongAm();
-			Console.Write("Nhap don gia mon ly thuyet: "); this.donGiaMonLyThuyet = XuLiDauvao.LaySoThucKhongAm();
-			Console.Write("Nhap so tin chi thuc hanh: "); this.soTinChiMonThucHanh = XuLiDauvao.laySoNguyenKhongAm();
-			Console.Write("Nhap don gia mon thuc hanh: "); this.donGiaMonThucHanh = XuLiDauvao.LaySoThucKhongAm();
+			Console.Write("Nhập số tín chỉ lý thuyết: "); this.soTinChilyThuyet = XuLiDauvao.laySoNguyenKhongAm();
+			Console.Write("Nhập đơn giá môn lý thuyết: "); this.donGiaMonLyThuyet = XuLiDauvao.LaySoThucKhongAm();
+			Console.Write("Nhập số tín chỉ thực hành: "); this.soTinChiMonThucHanh = XuLiDauvao.laySoNguyenKhongAm();
+			Console.Write("Nhập đơn giá môn thực hành: "); this.donGiaMonThucHanh = XuLiDauvao.LaySoThucKhongAm();
 
 		}
 
@@ -63,17 +63,17 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public override string xuatThongTinDayDu()
 		{
-			string ans = base.xuatThongTinDayDu() + "\nSo TCLT:".PadRight(15) + SoTinChilyThuyet.ToString() + "\nSo TCTH:".PadRight(15) + SoTinChiMonThucHanh
-				+ "\nDon gia LT:".PadRight(15) + DonGiaMonLyThuyet.ToString() + "\nDon gia TH:".PadRight(15) + DonGiaMonThucHanh.ToString()
-				+ "\nTong hoc phi:".PadRight(15) + tinhTienHocPhi().ToString();
+			string ans = base.xuatThongTinDayDu() + "\nSố TCLT:".PadRight(15) + SoTinChilyThuyet.ToString() + "\nSố TCTH:".PadRight(15) + SoTinChiMonThucHanh
+				+ "\nĐơn giá LT:".PadRight(15) + DonGiaMonLyThuyet.ToString() + "\nĐơn giá TH:".PadRight(15) + DonGiaMonThucHanh.ToString()
+				+ "\nTổng học phí:".PadRight(15) + tinhTienHocPhi().ToString();
 			return ans;
 		}
 
 		public override string xuatThongTinNganGon()
 		{
-			string ans = base.xuatThongTinNganGon() + "\nSo TCLT:".PadRight(15) + SoTinChilyThuyet.ToString()
-				+ "\nSo TCTH:".PadRight(15) + SoTinChiMonThucHanh.ToString()
-				+ "\nTong hoc phi:".PadRight(15) + tinhTienHocPhi().ToString();
+			string ans = base.xuatThongTinNganGon() + "\nSố TCLT:".PadRight(15) + SoTinChilyThuyet.ToString()
+				+ "\nSố TCTH:".PadRight(15) + SoTinChiMonThucHanh.ToString()
+				+ "\nTổng học phí:".PadRight(15) + tinhTienHocPhi().ToString();
 			return ans;
 		}
 	}

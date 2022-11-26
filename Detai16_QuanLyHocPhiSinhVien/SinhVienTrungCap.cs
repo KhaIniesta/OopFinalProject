@@ -38,7 +38,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		public override void nhapThongTin()
 		{
 			base.nhapThongTin();
-			Console.Write("Nhap hoc phi moi hoc ki: ");
+			Console.Write("Nhập học phí học kì: ");
 			this.HocPhiHocKi = XuLiDauvao.LaySoThucKhongAm();
 		}
 
@@ -50,14 +50,14 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public override string xuatThongTinDayDu()
 		{
-			string ans = base.xuatThongTinDayDu() + "\nHoc phi HK:".PadRight(15) + HocPhiHocKi.ToString()
-				 + "\nTong hoc phi:".PadRight(15) + tinhTienHocPhi().ToString();
+			string ans = base.xuatThongTinDayDu() + "\nHọc phí HK:".PadRight(15) + HocPhiHocKi.ToString()
+				 + "\nTổng học phí:".PadRight(15) + tinhTienHocPhi().ToString();
 			return ans;
 		}
 		public override string xuatThongTinNganGon()
 		{
-			string ans = base.xuatThongTinNganGon() + "\nHoc phi HK:".PadRight(15) + HocPhiHocKi.ToString()
-				+ "\nTong hoc phi:".PadRight(15) + tinhTienHocPhi().ToString();
+			string ans = base.xuatThongTinNganGon() + "\nHọc phí HK:".PadRight(15) + HocPhiHocKi.ToString()
+				+ "\nTổng học phí:".PadRight(15) + tinhTienHocPhi().ToString();
 			return ans;
 		}
 	}
