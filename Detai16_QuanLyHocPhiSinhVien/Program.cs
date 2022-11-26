@@ -168,6 +168,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		}
 		static void Main(string[] args)
 		{
+			//This is the test comment
 			List<IYeuCau> DS_SinhVien = new List<IYeuCau>();
 			string luaChon;
 			while (true)
