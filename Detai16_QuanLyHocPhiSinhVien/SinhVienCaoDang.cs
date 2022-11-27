@@ -49,10 +49,10 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		public override void nhapThongTin()
 		{
 			base.nhapThongTin();
-			Console.Write("Nhập số tín chỉ lý thuyết: "); this.soTinChilyThuyet = XuLiDauvao.laySoNguyenKhongAm();
-			Console.Write("Nhập đơn giá môn lý thuyết: "); this.donGiaMonLyThuyet = XuLiDauvao.LaySoThucKhongAm();
-			Console.Write("Nhập số tín chỉ thực hành: "); this.soTinChiMonThucHanh = XuLiDauvao.laySoNguyenKhongAm();
-			Console.Write("Nhập đơn giá môn thực hành: "); this.donGiaMonThucHanh = XuLiDauvao.LaySoThucKhongAm();
+			Console.Write("Nhập số tín chỉ lý thuyết: "); this.soTinChilyThuyet = XuLi.laySoNguyenKhongAm();
+			Console.Write("Nhập đơn giá môn lý thuyết: "); this.donGiaMonLyThuyet = XuLi.LaySoThucKhongAm();
+			Console.Write("Nhập số tín chỉ thực hành: "); this.soTinChiMonThucHanh = XuLi.laySoNguyenKhongAm();
+			Console.Write("Nhập đơn giá môn thực hành: "); this.donGiaMonThucHanh = XuLi.LaySoThucKhongAm();
 
 		}
 
@@ -63,7 +63,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public override string xuatThongTinDayDu()
 		{
-			string ans = base.xuatThongTinDayDu() + "\nSố TCLT:".PadRight(15) + SoTinChilyThuyet.ToString() + "\nSố TCTH:".PadRight(15) + SoTinChiMonThucHanh
+			string ans = base.xuatThongTinDayDu() + "\nLoại SV:".PadRight(15) + "Cao đẳng" + "\nSố TCLT:".PadRight(15) + SoTinChilyThuyet.ToString() + "\nSố TCTH:".PadRight(15) + SoTinChiMonThucHanh
 				+ "\nĐơn giá LT:".PadRight(15) + String.Format("{0:n0}", DonGiaMonLyThuyet) + " VNĐ" + "\nĐơn giá TH:".PadRight(15) + String.Format("{0:n0}", DonGiaMonThucHanh) + " VNĐ"
 				+ "\nTổng học phí:".PadRight(15) + String.Format("{0:n0}", tinhTienHocPhi()) + " VNĐ";
 			return ans;

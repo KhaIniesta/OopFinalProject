@@ -39,7 +39,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		{
 			base.nhapThongTin();
 			Console.Write("Nhập học phí học kì: ");
-			this.HocPhiHocKi = XuLiDauvao.LaySoThucKhongAm();
+			this.HocPhiHocKi = XuLi.LaySoThucKhongAm();
 		}
 
 
@@ -50,7 +50,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public override string xuatThongTinDayDu()
 		{
-			string ans = base.xuatThongTinDayDu() + "\nHọc phí HK:".PadRight(15) + String.Format("{0:n0}", HocPhiHocKi) + " VNĐ"
+			string ans = base.xuatThongTinDayDu() + "\nLoại SV:".PadRight(15) + "Trung cấp" + "\nHọc phí HK:".PadRight(15) + String.Format("{0:n0}", HocPhiHocKi) + " VNĐ"
 				 + "\nTổng học phí:".PadRight(15) + String.Format("{0:n0}", tinhTienHocPhi()) + " VNĐ";
 			return ans;
 		}

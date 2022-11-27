@@ -58,13 +58,13 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.Write("\tNhập tên niên khoá: ");
 			this.khoaHoc.TenNienKhoa = Console.ReadLine();
 			Console.Write("\tNhập năm bắt đầu khoá học: ");
-			this.KhoaHoc.NamBatDau = XuLiDauvao.laySoNguyenKhongAm();
+			this.KhoaHoc.NamBatDau = XuLi.laySoNguyenKhongAm();
 			Console.Write("\tNhập năm kết thúc khoá học: ");
-			this.KhoaHoc.NamKetThuc = XuLiDauvao.laySoNguyenKhongAm();
+			this.KhoaHoc.NamKetThuc = XuLi.laySoNguyenKhongAm();
 			Console.Write("Nhập tiền bảo hiểm: ");
-			this.TienBaoHiem = XuLiDauvao.LaySoThucKhongAm();
+			this.TienBaoHiem = XuLi.LaySoThucKhongAm();
 			Console.Write("Nhập tiền phụ thu: ");
-			this.PhuThu = XuLiDauvao.LaySoThucKhongAm();
+			this.PhuThu = XuLi.LaySoThucKhongAm();
 		}
 
 		public virtual string xuatThongTinNganGon()

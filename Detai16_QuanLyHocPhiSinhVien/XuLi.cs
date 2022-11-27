@@ -13,7 +13,7 @@ using System.Text;
 namespace Detai16_QuanLyHocPhiSinhVien
 {
 	// Class nay chua nhung phuong thuc tinh xu li cac input tu nguoi dung nhap khong hop le
-	public static class XuLiDauvao
+	public static class XuLi
 	{
 		public static int laySoNguyenKhongAm()
 		{

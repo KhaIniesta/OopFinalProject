@@ -77,7 +77,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.Write("Nhap họ và tên: ");
 			this.Ten = Console.ReadLine();
 			Console.Write("Nhập ngày sinh(dd/MM/yyyy): ");
-			this.NgaySinh = XuLiDauvao.layNgayHopLe();
+			this.NgaySinh = XuLi.layNgayHopLe();
 			Console.Write("Nhap giới tính: ");
 			this.GioiTinh = Console.ReadLine();
 			Console.Write("Nhập quốc tịch: ");

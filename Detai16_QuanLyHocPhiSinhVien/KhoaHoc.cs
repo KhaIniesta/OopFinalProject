@@ -41,9 +41,9 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.WriteLine("\tTên niên khóa mới: ");
 			this.TenNienKhoa = Console.ReadLine();
 			Console.WriteLine("\tNăm bắt đầu mới: ");
-			this.NamBatDau = XuLiDauvao.laySoNguyenKhongAm();
+			this.NamBatDau = XuLi.laySoNguyenKhongAm();
 			Console.WriteLine("\tNăm kết thúc mới: ");
-			this.NamKetThuc = XuLiDauvao.laySoNguyenKhongAm();
+			this.NamKetThuc = XuLi.laySoNguyenKhongAm();
 
 		}
 
