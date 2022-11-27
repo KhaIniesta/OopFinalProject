@@ -1,9 +1,9 @@
 ﻿/*
-Nhom 21, chu de 16:
-Thanh vien nhom :
-	Le Minh Kha - mssv 21110890
-	Tran Quy Thuong - mssv 21110672
-	Nguyen Dieu Huong - mssv 21110489
+Nhóm 21, chủ đề 16:
+Thành viên nhóm :
+	Lê Minh Kha - mssv 21110890
+	Trần Quý Thương - mssv 21110672
+	Nguyễn Diệu Hương - mssv 21110489
 */
 using System;
 using System.Collections.Generic;
@@ -36,9 +36,20 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		}
 
 		//Method:
+		public void ThayDoiKhoaHoc()
+		{
+			Console.WriteLine("\tTên niên khóa mới: ");
+			this.TenNienKhoa = Console.ReadLine();
+			Console.WriteLine("\tNăm bắt đầu mới: ");
+			this.NamBatDau = XuLi.laySoNguyenKhongAm();
+			Console.WriteLine("\tNăm kết thúc mới: ");
+			this.NamKetThuc = XuLi.laySoNguyenKhongAm();
+
+		}
+
 		public string toString()
 		{
-			return "\tTen nien hoc:".PadRight(15) + tenNienKhoa + "\n\tNam bat dau:".PadRight(15) + namBatDau + "\n\tNam ket thuc:".PadRight(15) + namKetThuc; 
+			return "\tTên niên học:".PadRight(15) + tenNienKhoa + "\n\tnăm bắt đầu:".PadRight(15) + namBatDau + "\n\tNăm kết thúc:".PadRight(15) + namKetThuc; 
 		}
 	}
 }
