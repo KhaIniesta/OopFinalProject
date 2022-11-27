@@ -18,6 +18,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		public static int laySoNguyenKhongAm()
 		{
 			Console.Write("Nhập vào: ");
+			HieuUng.cachDongDau++;
 			while (true)
 			{
 				string input = Console.ReadLine();
@@ -30,6 +31,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				{
 					Console.ForegroundColor = ConsoleColor.DarkRed;
 					Console.Write("Vui lòng nhập lại: ");
+					HieuUng.cachDongDau++;
 					Console.ResetColor();
 					continue;
 				}
@@ -38,6 +40,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				{ 
 					Console.ForegroundColor = ConsoleColor.DarkRed;
 					Console.Write("Vui lòng nhập lại : ");
+					HieuUng.cachDongDau++;
 					Console.ResetColor();
 				} 
 			}
@@ -46,6 +49,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		public static double LaySoThucKhongAm()
 		{
 			Console.Write("Nhập vào: ");
+			HieuUng.cachDongDau++;
 			while (true)
 			{
 				string input = Console.ReadLine();
@@ -58,6 +62,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				{
 					Console.ForegroundColor = ConsoleColor.DarkRed;
 					Console.Write("Vui lòng nhập lại: ");
+					HieuUng.cachDongDau++;
 					Console.ResetColor();
 					continue;
 				}
@@ -66,6 +71,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				{
 					Console.ForegroundColor = ConsoleColor.DarkRed;
 					Console.Write("Vui lòng nhập lại: ");
+					HieuUng.cachDongDau++;
 					Console.ResetColor();
 				}
 			}
@@ -87,6 +93,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					Console.Write("Không hợp lệ, vui lòng nhập lại!\n");
 					Console.ResetColor();
 					Console.Write("Ngày sinh (dd/MM/yyyy): ");
+					HieuUng.cachDongDau += 3;
+
 					continue;
 				}
 				break;

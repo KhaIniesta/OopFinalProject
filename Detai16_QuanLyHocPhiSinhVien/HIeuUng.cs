@@ -7,6 +7,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 {
 	public static class HieuUng
 	{
+		public static int cachDongDau = 0;
+
 		public static void ThanhTienDo(int kcLeTrai, int kcLeTren, int tongSoPhanTram, ConsoleColor color)
 		{
 			int isaret = 2;

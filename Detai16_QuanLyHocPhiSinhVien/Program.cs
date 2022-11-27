@@ -60,9 +60,12 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public static void XoaSinhVienKhoiDanhSach_2(ref List<IYeuCau> DS_SinhVien)
 		{
+			HieuUng.cachDongDau = 0;
+
 			if (DS_SinhVien.Count == 0)
 			{
-				Console.WriteLine("Không có sinh viên nào trong danh sách!");
+				Console.Write("Không có sinh viên nào trong danh sách!\nẤn nút bất kì để về MENU chính! ");
+				Console.ReadKey();
 				return;
 			}
 			Console.Clear();
@@ -73,13 +76,13 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.WriteLine(" 3. Xoá sinh viên theo số căn cước công dân");
 			Console.WriteLine(" 4. Xoá sinh viên theo số thứ tự trong danh sách (stt bắt đầu từ 1)");
 			Console.ResetColor();
-
 			string luaChon;
 
 			while (true)
 			{
 				Console.Write("Lựa chọn : ");
 				luaChon = Console.ReadLine();
+				HieuUng.cachDongDau = 6;
 
 				if (luaChon == "1")
 				{
@@ -102,7 +105,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 						}
 					}
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau+1, 100, ConsoleColor.White);
 					Console.WriteLine($"\nĐã xóa {dem} sinh viên có tên {ten}");
 					Console.ReadKey();
 				}
@@ -127,7 +130,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 						}
 					}
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau+1, 100, ConsoleColor.White);
 					Console.WriteLine($"\nĐã xóa {dem} sinh viên có mã số sinh viên {mssv}");
 					Console.ReadKey();
 				}
@@ -152,7 +155,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 						}
 					}
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau+1, 100, ConsoleColor.White);
 					Console.WriteLine($"\nĐã xoá {dem} sinh viên có số căn cước công dân {cccd}");
 					Console.ReadKey();
 				}
@@ -169,6 +172,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 						{
 							Console.ForegroundColor = ConsoleColor.DarkRed;
 							Console.WriteLine($"STT phải nằm trong khoảng (1 -> {DS_SinhVien.Count})!");
+							HieuUng.cachDongDau += 3;
+
 							Console.ResetColor();
 						}
 						else
@@ -177,7 +182,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 						}
 					}
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
 					DS_SinhVien.RemoveAt(index - 1);
 					Console.WriteLine($"\nĐã xóa sinh viên có STT {index} khỏi danh sách!");
 					Console.ReadKey();
@@ -195,6 +200,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public static void ChinhSuaThongTinSinhVien_3(ref List<IYeuCau> DS_SinhVien)
 		{
+			HieuUng.cachDongDau = 0;
 			Console.Clear();
 			if (DS_SinhVien.Count == 0)
 			{
@@ -414,15 +420,10 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.ReadKey();
 		}
 
-		public static void Swap<T>(ref T t1, ref T t2)
-		{
-			T temp = t1;
-			t1 = t2;
-			t2 = temp;
-		}
-
 		public static void SapXepDanhSachSinhVien_4(ref List<IYeuCau> DS_SinhVien)
 		{
+			HieuUng.cachDongDau = 0;
+
 			Console.Clear();
 			if (DS_SinhVien.Count == 0)
 			{
@@ -439,10 +440,13 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.WriteLine(" 2. Sắp xếp theo ngày sinh");
 			Console.WriteLine(" 3. Sắp xếp theo MSSV");
 			Console.WriteLine(" 4. Sắp xếp theo học phí");
+			HieuUng.cachDongDau += 6;
 			Console.ResetColor();
 			while (true)
 			{
 				Console.Write("Chọn: ");
+				HieuUng.cachDongDau++;
+
 				string luaChon = Console.ReadLine();
 
 				if (luaChon == "1")
@@ -518,11 +522,13 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				{
 					Console.ForegroundColor = ConsoleColor.DarkRed;
 					Console.WriteLine("Chọn sai, vui lòng chọn lại!");
+					HieuUng.cachDongDau++;
+
 					Console.ResetColor();
 					continue;
 				}
 				// hiệu ứng tiến độ
-				HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+				HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
 				Console.WriteLine("\nĐã sắp xếp, nhấn nút bất kì để về MENU chính: ");
 				Console.ReadKey();
 				break;
@@ -531,6 +537,15 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public static void XuatDanhSachSV_5(ref List<IYeuCau> DS_SinhVien)
 		{
+			if (DS_SinhVien.Count == 0)
+			{
+				Console.WriteLine("Không có sinh viên nào trong danh sách!");
+				Console.WriteLine("Ấn nút bất kì để về MENU chính : ");
+				Console.ReadKey(true);
+			}
+
+			HieuUng.ThanhTienDo(3, 17, 100, ConsoleColor.White);
+
 			string First_Line = "|STT".PadRight(5) + "|Họ và tên".PadRight(20) + "|Giới tính".PadRight(11) + "|Ngày sinh".PadRight(12) + "|MSSV".PadRight(10)
 				+ "|Loại sinh viên".PadRight(15) + "|Niên khoá".PadRight(10) + "|Quê quán(tỉnh)".PadRight(20) + "|Tổng học phí(VNĐ)".PadRight(20) + "|";
 			string Second_Line = "+----+-------------------+----------+-----------+---------+--------------+---------+-------------------+-------------------+";
