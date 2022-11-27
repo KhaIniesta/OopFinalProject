@@ -1,13 +1,14 @@
 ﻿/*
-Nhom 21, chu de 16:
-Thanh vien nhom :
-	Le Minh Kha - mssv 21110890
-	Tran Quy Thuong - mssv 21110672
-	Nguyen Dieu Huong - mssv 21110489
+Nhóm 21, chủ đề 16:
+Thành viên nhóm :
+	Lê Minh Kha - mssv 21110890
+	Trần Quý Thương - mssv 21110672
+	Nguyễn Diệu Hương - mssv 21110489
 */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.IO.Pipes;
 using System.Linq;
 using System.Reflection;
@@ -15,21 +16,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
+
 namespace Detai16_QuanLyHocPhiSinhVien
 {
 	internal class Program
 	{
 		public static void ThemSinhVien_1(ref List<IYeuCau> DS_SinhVien)
 		{
+			Console.ResetColor();
 			int soLuongSVthemvao = 0;
-			Console.Write("Nhap so luong sinh vien can them: "); soLuongSVthemvao = XuLiDauvao.laySoNguyenKhongAm();
+			Console.Write("Nhập số lượng sinh viên cần thêm: "); soLuongSVthemvao = XuLi.laySoNguyenKhongAm();
 			while (soLuongSVthemvao != 0)
 			{
 
 				IYeuCau SinhVien_Tam;
 				string loaiSinhVien;
 				Console.WriteLine("---");
-				Console.Write("Chon loai sinh vien(1.Sinh vien trung cap, 2.Sinh vien cao dang): "); loaiSinhVien = Console.ReadLine();
+				Console.Write("Chọn loại sinh viên(1.Sinh viên trung cấp, 2.Sinh viên cao đẳng): "); loaiSinhVien = Console.ReadLine();
 				loaiSinhVien = loaiSinhVien.Trim();
 				if (loaiSinhVien == "1")
 				{
@@ -43,7 +46,9 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				else
 				{
-					Console.Write("Chon khong hop le, vui long chon lai!");
+					Console.ForegroundColor = ConsoleColor.DarkRed;
+					Console.Write("Chọn không hợp lệ, vui lòng chọn lại!");
+					Console.ResetColor();
 					Console.ReadKey();
 					Console.WriteLine();
 					continue;
@@ -57,26 +62,28 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		{
 			if (DS_SinhVien.Count == 0)
 			{
-				Console.WriteLine("Khong co sinh vien nao trong danh sach!");
+				Console.WriteLine("Không có sinh viên nào trong danh sách!");
 				return;
 			}
-
-			Console.WriteLine("Ban muon xoa sinh vien theo lua chon nao : ");
-			Console.WriteLine("1. Xoa sinh vien theo ten");
-			Console.WriteLine("2. Xoa sinh vien theo ma so sinh vien");
-			Console.WriteLine("3. Xoa sinh vien theo so can cuoc cong dan");
-			Console.WriteLine("4. Xoa sinh vien theo so thu tu trong danh sach (stt bat dau tu 1)");
+			Console.Clear();
+			Console.ForegroundColor = ConsoleColor.DarkYellow;
+			Console.WriteLine(" Bạn muốn xoá sinh viên theo lựa chọn nào: ");
+			Console.WriteLine(" 1. Xoá sinh viên theo tên");
+			Console.WriteLine(" 2. Xoá sinh viên theo mã số sinh viên");
+			Console.WriteLine(" 3. Xoá sinh viên theo số căn cước công dân");
+			Console.WriteLine(" 4. Xoá sinh viên theo số thứ tự trong danh sách (stt bắt đầu từ 1)");
+			Console.ResetColor();
 
 			string luaChon;
 
 			while (true)
 			{
-				Console.Write("Lua chon : ");
+				Console.Write("Lựa chọn : ");
 				luaChon = Console.ReadLine();
 
 				if (luaChon == "1")
 				{
-					Console.Write("Moi ban nhap ten cua sinh vien muon xoa : ");
+					Console.Write("Nhập tên của sinh viên muốn xoá: ");
 					string ten = Console.ReadLine();
 
 					int dem = 0;
@@ -94,12 +101,14 @@ namespace Detai16_QuanLyHocPhiSinhVien
 							i++;
 						}
 					}
-
-					Console.WriteLine($"Da xoa {dem} sinh vien co ten {ten}");
+					// hiệu ứng tiến độ
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+					Console.WriteLine($"\nĐã xóa {dem} sinh viên có tên {ten}");
+					Console.ReadKey();
 				}
 				else if (luaChon == "2")
 				{
-					Console.Write("Moi ban nhap ma so sinh vien cua sinh vien muon xoa : ");
+					Console.Write("Nhập mã số sinh viên của sinh viên muốn xoá: ");
 					string mssv = Console.ReadLine();
 
 					int dem = 0;
@@ -117,12 +126,14 @@ namespace Detai16_QuanLyHocPhiSinhVien
 							i++;
 						}
 					}
-
-					Console.WriteLine($"Da xoa {dem} sinh vien co ma so sinh vien {mssv}");
+					// hiệu ứng tiến độ
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+					Console.WriteLine($"\nĐã xóa {dem} sinh viên có mã số sinh viên {mssv}");
+					Console.ReadKey();
 				}
 				else if(luaChon == "3")
 				{
-					Console.Write("Moi ban nhap so can cuoc cong dan cua sinh vien muon xoa : ");
+					Console.Write("Nhập số căn cước công dân của sinh viên muốn xoá: ");
 					string cccd = Console.ReadLine();
 
 					int dem = 0;
@@ -140,8 +151,10 @@ namespace Detai16_QuanLyHocPhiSinhVien
 							i++;
 						}
 					}
-
-					Console.WriteLine($"Da xoa {dem} sinh vien co so can cuoc cong dan {cccd}");
+					// hiệu ứng tiến độ
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+					Console.WriteLine($"\nĐã xoá {dem} sinh viên có số căn cước công dân {cccd}");
+					Console.ReadKey();
 				}
 				else if (luaChon == "4")
 				{
@@ -149,25 +162,31 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 					while (true)
 					{
-						Console.WriteLine("Moi ban nhap vao stt cua sinh vien muon xoa trong danh sach : ");
-						index = XuLiDauvao.laySoNguyenKhongAm();
+						Console.WriteLine("Nhập vào STT của sinh viên muốn xoá trong danh sách: ");
+						index = XuLi.laySoNguyenKhongAm();
 
 						if (index == 0 || index > DS_SinhVien.Count)
 						{
-							Console.WriteLine($"Stt phai nam trong khoang (1 -> {DS_SinhVien.Count})!");
+							Console.ForegroundColor = ConsoleColor.DarkRed;
+							Console.WriteLine($"STT phải nằm trong khoảng (1 -> {DS_SinhVien.Count})!");
+							Console.ResetColor();
 						}
 						else
 						{
 							break;
 						}
 					}
-
+					// hiệu ứng tiến độ
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
 					DS_SinhVien.RemoveAt(index - 1);
-					Console.WriteLine($"Da xoa sinh vien co stt {index} khoi danh sach!");
+					Console.WriteLine($"\nĐã xóa sinh viên có STT {index} khỏi danh sách!");
+					Console.ReadKey();
 				}
 				else
 				{
-					Console.WriteLine("Nhap sai, vui long nhap lai!");
+					Console.ForegroundColor = ConsoleColor.DarkRed;
+					Console.WriteLine("Nhập sai, vui lòng nhập lại!");
+					Console.ResetColor();
 					continue;
 				}
 				break;
@@ -176,10 +195,11 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public static void ChinhSuaThongTinSinhVien_3(ref List<IYeuCau> DS_SinhVien)
 		{
+			Console.Clear();
 			if (DS_SinhVien.Count == 0)
 			{
-				Console.WriteLine("Khong co sinh vien vao trong danh sach!");
-				Console.Write("Nhan nut bat ki de ve MENU chinh : ");
+				Console.WriteLine("Không có sinh viên nào trong danh sách!");
+				Console.Write("Nhấn nút bất kì để về MENU chính: ");
 				Console.ReadKey();
 				return;
 			}
@@ -187,12 +207,14 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		
 			while (true)
 			{
-				Console.WriteLine("Moi ban nhap vao stt cua sinh vien muon chinh sua thong tin trong danh sach : ");
-				index = XuLiDauvao.laySoNguyenKhongAm();
+				Console.WriteLine("Nhập vào STT của sinh viên muốn chỉnh sửa thông tin trong danh sách: ");
+				index = XuLi.laySoNguyenKhongAm();
 
 				if (index == 0 || index > DS_SinhVien.Count)
 				{
-					Console.WriteLine($"Stt phai nam trong khoang (1 -> {DS_SinhVien.Count})!");
+					Console.ForegroundColor = ConsoleColor.DarkRed;
+					Console.WriteLine($"STT phải nằm trong khoảng (1 -> {DS_SinhVien.Count})!");
+					Console.ResetColor();
 				}
 				else
 				{
@@ -203,51 +225,55 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			bool laSinhVienTrungCap = true;
 			if (DS_SinhVien[index- 1] is SinhVienTrungCap) 
 			{
-				Console.WriteLine("Chinh sua thong tin cho sinh vien trung cap : ");
+				Console.WriteLine("Chỉnh sửa thông tin cho sinh viên trung cấp: ");
 			}
 			else
 			{
-				Console.WriteLine("Chinh sua thong tin cho sinh vien cao dang : ");
+				Console.WriteLine("Chỉnh sửa thông tin cho sinh viên cao đẳng: ");
 				laSinhVienTrungCap = false;
 			}
-
-			Console.WriteLine("\t1. Ten");
-			Console.WriteLine("\t2. Ngay sinh");
-			Console.WriteLine("\t3. Gioi tinh");
-			Console.WriteLine("\t4. Quoc tich");
-			Console.WriteLine("\t5. Que quan");
-			Console.WriteLine("\t6. Dia chi thuong tru");
-			Console.WriteLine("\t7. So can cuoc cong dan");
-			Console.WriteLine("\t8. Ma so sinh vien");
-			Console.WriteLine("\t9. Khoa hoc");
-			Console.WriteLine("\t10. Tien bao hiem");
-			Console.WriteLine("\t11. Phu thu");
+			Console.ForegroundColor = ConsoleColor.DarkYellow;
+			Console.WriteLine("\t1. Tên");
+			Console.WriteLine("\t2. Ngày sinh");
+			Console.WriteLine("\t3. Giới tính");
+			Console.WriteLine("\t4. Quốc tịch");
+			Console.WriteLine("\t5. Quê quán");
+			Console.WriteLine("\t6. Địa chỉ thường trú");
+			Console.WriteLine("\t7. Số căn cước công dân");
+			Console.WriteLine("\t8. Mã số sinh viên");
+			Console.WriteLine("\t9. Khoá học");
+			Console.WriteLine("\t10. Tiền bảo hiểm");
+			Console.WriteLine("\t11. Phụ thu");
 			// Tuy chinh menu cho 2 loai sinh vien
+			int khoangCach = 22; // dung cho ham hieu ung
 			if (laSinhVienTrungCap == true)
 			{
-				Console.WriteLine("\t12. Hoc phi hoc ki");
-
+				khoangCach = 19;
+				Console.WriteLine("\t12. Học phí học kì");
 			}
 			else
 			{
-				Console.WriteLine("\t12. So tin chi mon li thuyet");
-				Console.WriteLine("\t13. Don gia mon li thuyet");
-				Console.WriteLine("\t14. So tin chi thuc hanh");
-				Console.WriteLine("\t15. Don gia mon thuc hanh");
+				Console.WriteLine("\t12. Số tín chỉ môn lý thuyết");
+				Console.WriteLine("\t13. Đơn giá môn lý thuyết");
+				Console.WriteLine("\t14. Số tín chỉ thực hành");
+				Console.WriteLine("\t15. Đơn giá môn thực hành");
 			}
+			Console.ResetColor();
 
 			//Thuc hien chinh sua
 			int luaChon;
 			while (true)
 			{
-				Console.Write("\n\tMoi chon => ");
-				luaChon = XuLiDauvao.laySoNguyenKhongAm();
+				Console.Write("\n\tMời chọn => ");
+				luaChon = XuLi.laySoNguyenKhongAm();
 
 				if (laSinhVienTrungCap == true)
 				{
 					if (luaChon == 0 || luaChon > 12)
 					{
-						Console.WriteLine("\tLua chon phai nam trong khoang (1->12) !");
+						Console.ForegroundColor = ConsoleColor.DarkRed;
+						Console.WriteLine("\tLựa chọn phải nằm trong khoảng (1->12) !");
+						Console.ResetColor();
 						continue;
 					}
 					else
@@ -260,7 +286,9 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				{
 					if (luaChon == 0 || luaChon > 15)
 					{
-						Console.WriteLine("\tLua chon phai nam trong khoang (1->15) ! ");
+						Console.ForegroundColor = ConsoleColor.DarkRed;
+						Console.WriteLine("\tLựa chọn phải nằm trong khoảng (1->15) ! ");
+						Console.ResetColor();
 						continue;
 					}
 					else
@@ -276,17 +304,20 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				if (laSinhVienTrungCap == true)
 				{
 					SinhVienTrungCap sinhVien = (SinhVienTrungCap)DS_SinhVien[index - 1];
-					Console.Write("Hoc phi hoc ki moi : ");
-					sinhVien.HocPhiHocKi = XuLiDauvao.LaySoThucKhongAm();
+					Console.Write("Học phí học kì mới: ");
+					sinhVien.HocPhiHocKi = XuLi.LaySoThucKhongAm();
 				}
 				else
 				{
 					SinhVienCaoDang sinhVien = (SinhVienCaoDang)DS_SinhVien[index - 1];
 					Console.WriteLine();
-					Console.Write("So tin chi ly thuyet moi : ");
-					sinhVien.SoTinChilyThuyet = XuLiDauvao.laySoNguyenKhongAm();
+					Console.Write("Số tín chỉ lý thuyết mới: ");
+					sinhVien.SoTinChilyThuyet = XuLi.laySoNguyenKhongAm();
 				}
-				Console.WriteLine("Da thay doi thong tin sinh vien!");
+				// hiệu ứng tiến độ
+				HieuUng.ThanhTienDo(3, khoangCach, 100, ConsoleColor.White);
+				Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
+				Console.ReadKey();
 				return;
 			}
 
@@ -297,21 +328,22 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 				if (luaChon == 13)
 				{
-					Console.WriteLine("Don gia mon ly thuyet moi : ");
-					sinhVien.DonGiaMonLyThuyet = XuLiDauvao.LaySoThucKhongAm();
+					Console.WriteLine("Đơn giá môn lý thuyết mới : ");
+					sinhVien.DonGiaMonLyThuyet = XuLi.LaySoThucKhongAm();
 				}
 				else if (luaChon == 14)
 				{
-					Console.WriteLine("So tin chi thuc hanh moi : ");
-					sinhVien.SoTinChiMonThucHanh = XuLiDauvao.laySoNguyenKhongAm();
+					Console.WriteLine("Số tín chỉ thực hành mới : ");
+					sinhVien.SoTinChiMonThucHanh = XuLi.laySoNguyenKhongAm();
 				}
 				else if (luaChon == 15)
 				{
-					Console.WriteLine("Don gia mon ly thuyet moi : ");
-					sinhVien.DonGiaMonThucHanh = XuLiDauvao.LaySoThucKhongAm();
+					Console.WriteLine("Đơn giá môn lý thuyết mới: ");
+					sinhVien.DonGiaMonThucHanh = XuLi.LaySoThucKhongAm();
 				}
-
-				Console.WriteLine("Da thay doi thong tin sinh vien!");
+				// hiệu ứng tiến độ
+				HieuUng.ThanhTienDo(3, khoangCach, 100, ConsoleColor.White);
+				Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
 				return;
 			}
 
@@ -320,63 +352,66 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 			if (luaChon == 1)
 			{
-				Console.Write("Nhap ten moi: ");
+				Console.Write("Nhập tên mới: ");
 				sv.Ten = Console.ReadLine();
 			}
 			else if (luaChon == 2)
 			{
-				Console.Write("Nhap ngay sinh moi(dd/MM/yyyy): ");
-				sv.NgaySinh = XuLiDauvao.layNgayHopLe();
+				Console.Write("Nhập ngày sinh mới(dd/MM/yyyy): ");
+				sv.NgaySinh = XuLi.layNgayHopLe();
 			}
 			else if (luaChon == 3)
 			{
-				Console.Write("Nhap gioi tinh moi : ");
+				Console.Write("Nhập giới tính mới : ");
 				sv.GioiTinh = Console.ReadLine();
 
 			}
 			else if (luaChon == 4)
 			{
-				Console.Write("Nhap quoc tich moi: ");
+				Console.Write("Nhập quốc tịch mới: ");
 				sv.QuocTich = Console.ReadLine();
 
 			}
 			else if (luaChon == 5)
 			{
-				Console.WriteLine("Nhap vao que quan moi: ");
+				Console.WriteLine("Nhập vào quê quán mới: ");
 				sv.QueQuan.ThayDoiDiaChi();
 
 			}
 			else if (luaChon == 6)
 			{
-				Console.WriteLine("Nhap dia chi thuong tru moi: ");
+				Console.WriteLine("Nhập địa chỉ thường trú mới: ");
 				sv.DiaChiThuongTru.ThayDoiDiaChi();
 			}
 			else if (luaChon == 7)
 			{
-				Console.Write("Nhap so can cuoc cong dan moi: ");
+				Console.Write("Nhập số căn cước công dân mới: ");
 				sv.SoCanCuocCongDan = Console.ReadLine();
 			}
 			else if (luaChon == 8)
 			{
-				Console.Write("Nhap ma so sinh vien moi: ");
+				Console.Write("Nhập mã số sinh viên mới: ");
 				sv.MaSoSinhVien = Console.ReadLine();
 			}
 			else if (luaChon == 9)
 			{
-				Console.WriteLine("Nhap thong tin khoa hoc moi: ");
+				Console.WriteLine("Nhập thông tin khóa học mới: ");
 				sv.KhoaHoc.ThayDoiKhoaHoc();
 			}
 			else if (luaChon == 10)
 			{
-				Console.Write("Nhap tien bao hiem moi: ");
-				sv.TienBaoHiem = XuLiDauvao.LaySoThucKhongAm();
+				Console.Write("Nhập tiền bảo hiểm mới: ");
+				sv.TienBaoHiem = XuLi.LaySoThucKhongAm();
 			}
 			else if (luaChon == 11)
 			{
-				Console.Write("Nhap phu thu moi: ");
-				sv.PhuThu = XuLiDauvao.LaySoThucKhongAm();
+				Console.Write("Nhập phụ thu mới: ");
+				sv.PhuThu = XuLi.LaySoThucKhongAm();
 			}
-			Console.WriteLine("Da thay doi thong tin sinh vien!");
+			// hiệu ứng tiến độ
+			HieuUng.ThanhTienDo(3, khoangCach, 100, ConsoleColor.White);
+			Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
+			Console.ReadKey();
 		}
 
 		public static void Swap<T>(ref T t1, ref T t2)
@@ -388,24 +423,26 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public static void SapXepDanhSachSinhVien_4(ref List<IYeuCau> DS_SinhVien)
 		{
+			Console.Clear();
 			if (DS_SinhVien.Count == 0)
 			{
-				Console.WriteLine("Khong co sinh vien trong danh sach.");
-				Console.Write("An mot nut bat ki de quay lai man hinh chinh : ");
+				Console.WriteLine("Không có sinh viên trong danh sách.");
+				Console.Write("Ấn một nút bất kì để quay lại màn hình chính : ");
 				Console.ReadKey();
 				return;
 			}
 
-			Console.WriteLine("Sap xep danh sach:\n");
+			Console.ForegroundColor = ConsoleColor.DarkYellow;
+			Console.WriteLine(" Sắp xếp danh sách:\n");
 
-			Console.WriteLine("1. Sap xep theo ten");
-			Console.WriteLine("2. Sap xep theo ngay sinh");
-			Console.WriteLine("3. Sap xep theo mssv");
-			Console.WriteLine("4. Sap xep theo hoc phi");
-
+			Console.WriteLine(" 1. Sắp xếp theo tên");
+			Console.WriteLine(" 2. Sắp xếp theo ngày sinh");
+			Console.WriteLine(" 3. Sắp xếp theo MSSV");
+			Console.WriteLine(" 4. Sắp xếp theo học phí");
+			Console.ResetColor();
 			while (true)
 			{
-				Console.Write("Chon : ");
+				Console.Write("Chọn: ");
 				string luaChon = Console.ReadLine();
 
 				if (luaChon == "1")
@@ -479,11 +516,14 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				else
 				{
-					Console.WriteLine("Chon sai, vui long chon lai!");
+					Console.ForegroundColor = ConsoleColor.DarkRed;
+					Console.WriteLine("Chọn sai, vui lòng chọn lại!");
+					Console.ResetColor();
 					continue;
 				}
-
-				Console.WriteLine("Da sap xep, nhan nut bat ki de ve MENU chinh : ");
+				// hiệu ứng tiến độ
+				HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+				Console.WriteLine("\nĐã sắp xếp, nhấn nút bất kì để về MENU chính: ");
 				Console.ReadKey();
 				break;
 			}
@@ -491,46 +531,120 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public static void XuatDanhSachSV_5(ref List<IYeuCau> DS_SinhVien)
 		{
-			string First_Line = "|Ho va ten".PadRight(20) + "|Gioi tinh".PadRight(11) + "|Ngay sinh".PadRight(12) + "|MSSV".PadRight(10)
-				+ "|Nien khoa".PadRight(10) + "|Que quan(tinh)".PadRight(20) + "|Tong hoc phi".PadRight(15) + "|";
-			string Second_Line = "+-------------------+----------+-----------+---------+---------+-------------------+--------------+";
+			string First_Line = "|STT".PadRight(5) + "|Họ và tên".PadRight(20) + "|Giới tính".PadRight(11) + "|Ngày sinh".PadRight(12) + "|MSSV".PadRight(10)
+				+ "|Loại sinh viên".PadRight(15) + "|Niên khoá".PadRight(10) + "|Quê quán(tỉnh)".PadRight(20) + "|Tổng học phí(VNĐ)".PadRight(20) + "|";
+			string Second_Line = "+----+-------------------+----------+-----------+---------+--------------+---------+-------------------+-------------------+";
 			string Record_Line;
 
 			Console.WriteLine();
+			Console.WriteLine(Second_Line);
 			Console.WriteLine(First_Line);
 			Console.WriteLine(Second_Line);
+			bool laSV_CaoDang = true;
+			int i = 1;
 			foreach (IYeuCau SV in DS_SinhVien)
 			{
-				Record_Line = "|" + SV.Ten.PadRight(19) + "|" + SV.GioiTinh.PadRight(10) + "|" + SV.NgaySinh.ToString("dd/MM/yyyy").PadRight(11) + "|" + SV.MaSoSinhVien.PadRight(9)
-					+ "|" + SV.KhoaHoc.TenNienKhoa.PadRight(9) + "|" + SV.QueQuan.Tinh.PadRight(19) + "|" + SV.tinhTienHocPhi().ToString().PadRight(14) + "|";
+				laSV_CaoDang = SV is SinhVienCaoDang;
+				Record_Line = "|" + i.ToString().PadRight(4) + "|" + SV.Ten.PadRight(19) + "|" + SV.GioiTinh.PadRight(10) + "|"
+					+ SV.NgaySinh.ToString("dd/MM/yyyy").PadRight(11) + "|" + SV.MaSoSinhVien.PadRight(9) + "|" + (laSV_CaoDang? "Cao đẳng":"Trung cấp").PadRight(14)
+					+ "|" + SV.KhoaHoc.TenNienKhoa.PadRight(9) + "|" + SV.QueQuan.Tinh.PadRight(19) + "|" + String.Format("{0:n0}", SV.tinhTienHocPhi()).PadRight(19) + "|";
 				Console.WriteLine(Record_Line);
+				i++;
 			}
-			Console.Write("An mot nut bat ki de tiep tuc! ");
+			Console.WriteLine(Second_Line);
+			Console.Write("\nẤn một nút bất kì để tiếp tục! ");
 			Console.ReadKey();
 		}
 
+		public static void XuatFileThongTinSV_ChiTiet_sub6(IYeuCau SV)
+		{
+			string luaChon;
+			string Line;
+			SinhVien sinhVien = (SinhVien)SV;
+			
+			File.WriteAllText($"../../../../{SV.MaSoSinhVien}.txt", "", Encoding.UTF8);
+			Console.Write("\nBạn có muốn xuất file thông tin sinh viên?(1.Có, 2.Không): "); luaChon = Console.ReadLine();
+			if(luaChon == "1")
+			{
+				Line = "Họ và tên: " + sinhVien.Ten + "\n";
+				File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt",Line, Encoding.UTF8);
+				Line = "Ngày sinh: " + sinhVien.NgaySinh.ToString("dd/mm/yyyy") + "\n";
+				File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+				Line = "Giới tính: " + sinhVien.GioiTinh + "\n";
+				File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+				Line = "Quê quán: " + sinhVien.QueQuan.toString() + "\n";
+				File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+				Line = "ĐC thường trú: " + sinhVien.DiaChiThuongTru.toString() + "\n";
+				File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+				Line = "Số CCCD: " + sinhVien.SoCanCuocCongDan + "\n";
+				File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+				Line = "Mã số sinh viên: " + sinhVien.MaSoSinhVien + "\n";
+				File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+				Line = "Khóa học: " + sinhVien.KhoaHoc.TenNienKhoa + "\n";
+				File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+				Line = "Tiền BH: " + sinhVien.TienBaoHiem.ToString() + "\n";
+				File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+				Line = "Phụ thu: " + sinhVien.PhuThu.ToString() + "\n";
+				File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+
+				if (SV is SinhVienCaoDang)
+				{
+					SinhVienCaoDang sv = (SinhVienCaoDang)SV;
+					Line = "Loại sinh viên: Sinh viên cao đẳng\n";
+					File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+
+					Line = "Số tín chỉ môn lý thuyết: " + sv.SoTinChilyThuyet.ToString() + "\n";
+					File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+					Line = "Số tín chỉ môn thực hành: " + sv.SoTinChiMonThucHanh.ToString() + "\n";
+					File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+					Line = "Đơn giá môn lý thuyết: " + sv.DonGiaMonLyThuyet.ToString() + "\n";
+					File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+					Line = "Đơn giá môn thực hành: " + sv.DonGiaMonThucHanh.ToString() + "\n";
+					File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+					Line = "Tổng học phí: " + sv.tinhTienHocPhi().ToString() + "\n";
+					File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+				}
+				else
+				{
+					Line = "Loại sinh viên: Sinh viên trung cấp\n";
+					File.AppendAllText($"../../../../{SV.MaSoSinhVien}.txt", Line, Encoding.UTF8);
+
+					SinhVienTrungCap sv = (SinhVienTrungCap)SV;
+					Line = "Học phí học kỳ: " + sv.tinhTienHocPhi().ToString() + "\n";
+				}
+			}
+			if(luaChon == "1")
+				Console.WriteLine("Xuất file thông tin sinh viên thành công!");
+			return;
+		}
 		public static void TimKiem_6(List<IYeuCau> DS_SinhVien)
 		{
 			Console.Clear();
-			Console.WriteLine("Chon dieu kien muon tim kiem: ");
-			Console.WriteLine("\t1. Tim kiem theo ten");
-			Console.WriteLine("\t2. Tim kiem theo ma so sinh vien");
-			Console.WriteLine("\t3. Tim kiem theo que quan");
-			Console.WriteLine("\t4. Tim kiem theo so can cuoc cong dan");
+			Console.ForegroundColor = ConsoleColor.DarkYellow;
+			Console.WriteLine(" Chọn điều kiện muốn tìm kiếm: ");
+			Console.WriteLine("\t1. Tìm kiếm theo tên");
+			Console.WriteLine("\t2. Tìm kiếm theo mã số sinh viên");
+			Console.WriteLine("\t3. Tìm kiếm theo quê quán");
+			Console.WriteLine("\t4. Tìm kiếm theo số căn cước công dân");
+			Console.ResetColor();
 
 			while (true)
 			{
-				Console.Write("Chon: ");
+				Console.Write("Chọn: ");
 				string input = Console.ReadLine();
 				if (input == "1")
 				{
-					Console.Write("Nhap ten can tim: ");
+					Console.Write("Nhập tên cần tìm: ");
 					input = Console.ReadLine();
+					// xử lý string
+					input = XuLi.chuyenTiengVietKhongDau(input);
 					input = input.Trim();
 					input = input.ToLower();
+					// hiệu ứng tiến độ
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
-						if (SV.Ten.ToLower().Contains(input))
+						if (XuLi.chuyenTiengVietKhongDau(SV.Ten).ToLower().Contains(input))
 						{
 							Console.WriteLine("---");
 							Console.WriteLine(SV.xuatThongTinDayDu());
@@ -540,28 +654,35 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				else if (input == "2")
 				{
-					Console.Write("Nhap MSSV can tim: ");
+					Console.Write("Nhập MSSV cần tìm: ");
 					input = Console.ReadLine();
 					input.Trim();
+					// hiệu ứng tiến độ
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
 						if (SV.MaSoSinhVien.Trim() == input)
 						{
 							Console.WriteLine("---");
 							Console.WriteLine(SV.xuatThongTinDayDu());
+							XuatFileThongTinSV_ChiTiet_sub6(SV);
 						}
 					}
 					break;
 				}
 				else if (input == "3")
 				{
-					Console.Write("Nhap que quan: ");
+					Console.Write("Nhập quê quán: ");
 					input = Console.ReadLine();
+					input = XuLi.chuyenTiengVietKhongDau(input);
 					input = input.Trim();
 					input = input.ToLower();
+					// hiệu ứng tiến độ
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
-						if (SV.QueQuan.toString().ToLower().Contains(input))
+						if ((XuLi.chuyenTiengVietKhongDau(SV.QueQuan.toString()).ToLower()).Contains(input))
 						{
 							Console.WriteLine("---");
 							Console.WriteLine(SV.xuatThongTinDayDu());
@@ -571,9 +692,11 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				else if (input == "4")
 				{
-					Console.Write("Nhap so cccd can tim: ");
+					Console.Write("Nhập số căn cước công dân cần tìm: ");
 					input = Console.ReadLine();
 					input.Trim();
+					// hiệu ứng tiến độ
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
 						if (SV.SoCanCuocCongDan.Trim() == input)
@@ -586,49 +709,79 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				else
 				{
-					Console.WriteLine("Chon khong hop le!");
+					Console.ForegroundColor = ConsoleColor.DarkRed;
+					Console.WriteLine("Chọn không hợp lệ!");
+					Console.ResetColor();
 					continue;
 				}
 			}
-			Console.Write("Tim kiem hoan tat, vui long nhan phim bat ki de ve MENU chinh! ");
+			Console.Write("\nTìm kiếm hoàn tất, vui lòng nhấn phím bất kì để về MENU chính! ");
 			Console.ReadKey();
 		}
 
 		public static void SoLuongCacDoiTuong_7()
 		{
-			Console.WriteLine("Dem so luong cac doi tuong cung loai:\n");
-			Console.WriteLine($"Dia chi : {DiaChi.DemDiaChi}");
-			Console.WriteLine($"Nguoi : {Nguoi.demNguoi}");
-			Console.WriteLine($"Khoa hoc : {KhoaHoc.demKhoaHoc}");
-			Console.WriteLine($"Sinh vien : {SinhVien.demSinhVien}");
-			Console.WriteLine($"Sinh vien trung cap : {SinhVienTrungCap.demSinhVienTrungCap}");
-			Console.WriteLine($"Sinh vien cao dang : {SinhVienCaoDang.demSinhVienCaoDang}");
-			Console.Write("Nhan nut bat ki de ve MENU chinh! ");
+			Console.WriteLine("Đếm số lượng các đối tượng cùng loại:\n");
+			Console.WriteLine($"Địa Chỉ: {DiaChi.DemDiaChi}");
+			Console.WriteLine($"Người: {Nguoi.demNguoi}");
+			Console.WriteLine($"Khóa học: {KhoaHoc.demKhoaHoc}");
+			Console.WriteLine($"Sinh viên: {SinhVien.demSinhVien}");
+			Console.WriteLine($"Sinh viên trung cấp: {SinhVienTrungCap.demSinhVienTrungCap}");
+			Console.WriteLine($"Sinh viên cao đẳng: {SinhVienCaoDang.demSinhVienCaoDang}");
+			Console.Write("Nhấn nút bất kì để về MENU chính! ");
 			Console.ReadKey();
 		}
 
+		public static void XuatFileDanhSachSV_8(List<IYeuCau> DS_SinhVien)
+		{
+			string First_Line = "STT" + ",Họ và tên" + ",Giới tính" + ",Ngày sinh" + ",MSSV"
+				+ ",Loại sinh viên" + ",Niên khoá" + ",Quê quán(tỉnh)" + ",Tổng học phí(VNĐ)\n";
+			string Record_Line;
+			bool laSV_CaoDang = true;
+			int i = 1;
+
+			File.WriteAllText("../../../../DanhSachSV.csv", First_Line, Encoding.UTF8);
+
+			foreach (IYeuCau SV in DS_SinhVien)
+			{
+				laSV_CaoDang = SV is SinhVienCaoDang;
+				Record_Line = i.ToString() + "," + SV.Ten + "," + SV.GioiTinh + ","
+					+ SV.NgaySinh.ToString("dd/MM/yyyy") + "," + SV.MaSoSinhVien + "," + (laSV_CaoDang ? "Cao đẳng" : "Trung cấp")
+					+ "," + SV.KhoaHoc.TenNienKhoa + "," + SV.QueQuan.Tinh + "," + SV.tinhTienHocPhi() + "\n";
+				File.AppendAllText("../../../../DanhSachSV.csv", Record_Line, Encoding.UTF8);
+				i++;
+			}
+			// hiệu ứng tiến độ
+			HieuUng.ThanhTienDo(3, 17, 100, ConsoleColor.White);
+			Console.WriteLine("\nXuất file danh sách thành công!");
+			Console.ReadKey();
+		}
 
 		static void Main(string[] args)
 		{
 			//This is the test comment
+			Console.OutputEncoding = System.Text.Encoding.Unicode;
+			Console.InputEncoding = System.Text.Encoding.Unicode;
 			List<IYeuCau> DS_SinhVien = new List<IYeuCau>();
 			string luaChon;
 			while (true)
 			{
 				Console.Clear();
-				Console.WriteLine("\t\tCHUONG TRINH QUAN LY SINH VIEN CUA TRUONG DAI HOC");
+				Console.ForegroundColor = ConsoleColor.DarkYellow;
+				Console.WriteLine("\n\tCHƯƠNG TRÌNH QUẢN LÝ SINH VIÊN CỦA TRƯỜNG ĐẠI HỌC");
 
-				Console.WriteLine("\n\t1. Them sinh vien vao danh sach");
-				Console.WriteLine("\t2. Xoa sinh vien khoi danh sach");
-				Console.WriteLine("\t3. Chinh sua thong tin sinh vien");
-				Console.WriteLine("\t4. Sap xep danh sach sinh vien");
-				Console.WriteLine("\t5. In danh sach sinh vien");
-				Console.WriteLine("\t6. Tim kiem");
-				Console.WriteLine("\t7. So luong cac doi tuong ");
-				Console.WriteLine("\t8. Dung chuong trinh");
-				Console.WriteLine("So luong sinh vien trong danh sach: " + DS_SinhVien.Count);
-
-				Console.Write("\nNhap lua chon: "); luaChon = Console.ReadLine();
+				Console.WriteLine("\n\t\t1. Thêm sinh viên vào danh sách");
+				Console.WriteLine("\t\t2. Xóa sinh viên khỏi danh sách");
+				Console.WriteLine("\t\t3. Chỉnh sửa thông tin sinh viên");
+				Console.WriteLine("\t\t4. Sắp xếp danh sách sinh viên");
+				Console.WriteLine("\t\t5. In danh sách sinh viên");
+				Console.WriteLine("\t\t6. Tìm kiếm sinh viên");
+				Console.WriteLine("\t\t7. Số lượng các đối tượng");
+				Console.WriteLine("\t\t8. Xuất danh sách ra file");
+				Console.WriteLine("\t\t9. Dừng chương trình");
+				Console.WriteLine("\n Số lượng sinh viên trong danh sách: " + DS_SinhVien.Count);
+				Console.ResetColor();
+				Console.Write("\n Nhập lựa chọn: "); luaChon = Console.ReadLine();
 
 				if (luaChon == "1")
 					ThemSinhVien_1(ref DS_SinhVien);
@@ -645,14 +798,18 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				else if (luaChon == "7")
 					SoLuongCacDoiTuong_7();
 				else if (luaChon == "8")
+					XuatFileDanhSachSV_8(DS_SinhVien);
+				else if (luaChon == "9")
 				{
-					Console.WriteLine("Da dung chuong trinh.");
+					Console.WriteLine("Đã dừng chương trình.");
 					return;
 				}
 				else
 				{
-					Console.WriteLine("Vui long chon 1 so trong danh sach!");
-					Console.Write("Nhan mot phim bat ki de tiep tuc : ");
+					Console.ForegroundColor = ConsoleColor.DarkRed;
+					Console.WriteLine("Vui lòng chọn 1 số trong danh sách!");
+					Console.Write("Nhấn một phím bất kì để tiếp tục: ");
+					Console.ResetColor();
 					Console.ReadKey();
 					continue;
 				}
