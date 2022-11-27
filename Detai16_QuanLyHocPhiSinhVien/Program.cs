@@ -245,10 +245,11 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.WriteLine("\t10. Tiền bảo hiểm");
 			Console.WriteLine("\t11. Phụ thu");
 			// Tuy chinh menu cho 2 loai sinh vien
+			int khoangCach = 22; // dung cho ham hieu ung
 			if (laSinhVienTrungCap == true)
 			{
+				khoangCach = 19;
 				Console.WriteLine("\t12. Học phí học kì");
-
 			}
 			else
 			{
@@ -314,7 +315,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					sinhVien.SoTinChilyThuyet = XuLi.laySoNguyenKhongAm();
 				}
 				// hiệu ứng tiến độ
-				HieuUng.ThanhTienDo(3, 19, 100, ConsoleColor.White);
+				HieuUng.ThanhTienDo(3, khoangCach, 100, ConsoleColor.White);
 				Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
 				Console.ReadKey();
 				return;
@@ -341,7 +342,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					sinhVien.DonGiaMonThucHanh = XuLi.LaySoThucKhongAm();
 				}
 				// hiệu ứng tiến độ
-				HieuUng.ThanhTienDo(3, 19, 100, ConsoleColor.White);
+				HieuUng.ThanhTienDo(3, khoangCach, 100, ConsoleColor.White);
 				Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
 				return;
 			}
@@ -408,7 +409,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				sv.PhuThu = XuLi.LaySoThucKhongAm();
 			}
 			// hiệu ứng tiến độ
-			HieuUng.ThanhTienDo(3, 19, 100, ConsoleColor.White);
+			HieuUng.ThanhTienDo(3, khoangCach, 100, ConsoleColor.White);
 			Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
 			Console.ReadKey();
 		}
