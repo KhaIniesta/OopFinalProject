@@ -639,6 +639,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.WriteLine("\t2. Tìm kiếm theo mã số sinh viên");
 			Console.WriteLine("\t3. Tìm kiếm theo quê quán");
 			Console.WriteLine("\t4. Tìm kiếm theo số căn cước công dân");
+			HieuUng.cachDongDau = 7;
 			Console.ResetColor();
 
 			while (true)
@@ -654,7 +655,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					input = input.Trim();
 					input = input.ToLower();
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
 						if (XuLi.chuyenTiengVietKhongDau(SV.Ten).ToLower().Contains(input))
@@ -671,7 +672,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					input = Console.ReadLine();
 					input.Trim();
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
 						if (SV.MaSoSinhVien.Trim() == input)
@@ -691,7 +692,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					input = input.Trim();
 					input = input.ToLower();
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
 
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
@@ -709,7 +710,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					input = Console.ReadLine();
 					input.Trim();
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
 						if (SV.SoCanCuocCongDan.Trim() == input)
@@ -724,6 +725,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				{
 					Console.ForegroundColor = ConsoleColor.DarkRed;
 					Console.WriteLine("Chọn không hợp lệ!");
+					HieuUng.cachDongDau += 2;
+
 					Console.ResetColor();
 					continue;
 				}
