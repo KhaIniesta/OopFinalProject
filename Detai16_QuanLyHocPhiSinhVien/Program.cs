@@ -179,7 +179,6 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				break;
 			}
-
 		}
 
 		public static void ChinhSuaThongTinSinhVien_3(ref List<IYeuCau> DS_SinhVien)
@@ -390,9 +389,114 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.ReadKey();
 		}
 
-		public static void SapXepDanhSachSinhVien_4()
+		public static void Swap<T>(ref T t1, ref T t2)
 		{
-			//chua code
+			T temp = t1;
+			t1 = t2;
+			t2 = temp;
+		}
+
+		public static void SapXepDanhSachSinhVien_4(ref List<IYeuCau> DS_SinhVien)
+		{
+			if (DS_SinhVien.Count == 0)
+			{
+				Console.WriteLine("Khong co sinh vien trong danh sach.");
+				Console.Write("An mot nut bat ki de quay lai man hinh chinh : ");
+				Console.ReadKey();
+				return;
+			}
+
+			Console.WriteLine("Sap xep danh sach:\n");
+
+			Console.WriteLine("1. Sap xep theo ten");
+			Console.WriteLine("2. Sap xep theo ngay sinh");
+			Console.WriteLine("3. Sap xep theo mssv");
+			Console.WriteLine("4. Sap xep theo hoc phi");
+
+			while (true)
+			{
+				Console.Write("Chon : ");
+				string luaChon = Console.ReadLine();
+
+				if (luaChon == "1")
+				{
+					for (int i = 0; i < DS_SinhVien.Count; i++)
+					{
+						for (int j = i+1; j < DS_SinhVien.Count; j++)
+						{
+							string tenDayDuI = DS_SinhVien[i].Ten.Trim();
+							string tenDayDuJ = DS_SinhVien[j].Ten.Trim();
+
+							string tenI = tenDayDuI.Split()[tenDayDuI.Split().Length - 1].ToLower();
+							string tenJ = tenDayDuJ.Split()[tenDayDuJ.Split().Length - 1].ToLower();
+
+							if (String.Compare(tenI, tenJ) > 0)
+							{
+								IYeuCau temp = DS_SinhVien[i];
+								DS_SinhVien[i] = DS_SinhVien[j];
+								DS_SinhVien[j] = temp;
+							}
+						}
+					}
+				}
+				else if (luaChon == "2")
+				{
+					for (int i = 0; i < DS_SinhVien.Count; i++)
+					{
+						for (int j = i+1; j < DS_SinhVien.Count; j++)
+						{
+							if (DateTime.Compare(DS_SinhVien[i].NgaySinh, DS_SinhVien[j].NgaySinh) > 0)
+							{
+								IYeuCau temp = DS_SinhVien[i];
+								DS_SinhVien[i] = DS_SinhVien[j];
+								DS_SinhVien[j] = temp;
+							}
+						}
+					}
+				}
+				else if (luaChon == "3")
+				{
+					for (int i = 0; i < DS_SinhVien.Count-1; i++)
+					{
+						for (int j = i+1; j < DS_SinhVien.Count; j++)
+						{
+							string mssvI = DS_SinhVien[i].MaSoSinhVien.Trim();
+							string mssvJ = DS_SinhVien[j].MaSoSinhVien.Trim();
+
+							if (String.Compare(mssvI, mssvJ) > 0)
+							{
+								IYeuCau temp = DS_SinhVien[i];
+								DS_SinhVien[i] = DS_SinhVien[j];
+								DS_SinhVien[j] = temp;
+							}
+						}
+					}
+				}
+				else if (luaChon == "4")
+				{
+					for (int i = 0; i < DS_SinhVien.Count; i++)
+					{
+						for (int j = i+1; j < DS_SinhVien.Count; j++)
+						{
+							if (DS_SinhVien[i].tinhTienHocPhi() > DS_SinhVien[j].tinhTienHocPhi())
+							{
+								IYeuCau temp = DS_SinhVien[i];
+								DS_SinhVien[i] = DS_SinhVien[j];
+								DS_SinhVien[j] = temp;
+							}
+						}
+					}
+				}
+				else
+				{
+					Console.WriteLine("Chon sai, vui long chon lai!");
+					continue;
+				}
+
+				Console.WriteLine("Da sap xep, nhan nut bat ki de ve MENU chinh : ");
+				Console.ReadKey();
+				break;
+			}
 		}
 
 		public static void XuatDanhSachSV_5(ref List<IYeuCau> DS_SinhVien)
@@ -635,18 +739,12 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 				if (luaChon == "1")
 					ThemSinhVien_1(ref DS_SinhVien);
-				else if (luaChon == "2")
-				{
+				else if (luaChon == "2")	
 					XoaSinhVienKhoiDanhSach_2(ref DS_SinhVien);
-				}
 				else if (luaChon == "3")
-				{
 					ChinhSuaThongTinSinhVien_3(ref DS_SinhVien);
-				}
 				else if (luaChon == "4")
-				{
-					Console.WriteLine("Chua code chuc nang nay:>>>");
-				}
+					SapXepDanhSachSinhVien_4(ref DS_SinhVien);
 				else if (luaChon == "5")
 					XuatDanhSachSV_5(ref DS_SinhVien);
 				else if (luaChon == "6")
