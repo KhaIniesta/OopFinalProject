@@ -28,11 +28,18 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				catch
 				{
+					Console.ForegroundColor = ConsoleColor.DarkRed;
 					Console.Write("Vui lòng nhập lại: ");
+					Console.ResetColor();
 					continue;
 				}
 				if (ans >= 0) return ans;
-				else Console.Write("Vui lòng nhập lại : ");
+				else
+				{ 
+					Console.ForegroundColor = ConsoleColor.DarkRed;
+					Console.Write("Vui lòng nhập lại : ");
+					Console.ResetColor();
+				} 
 			}
 		}
 
@@ -49,11 +56,18 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				catch
 				{
+					Console.ForegroundColor = ConsoleColor.DarkRed;
 					Console.Write("Vui lòng nhập lại: ");
+					Console.ResetColor();
 					continue;
 				}
 				if (ans >= 0) return ans;
-				else Console.Write("Vui lòng nhập lại: ");
+				else
+				{
+					Console.ForegroundColor = ConsoleColor.DarkRed;
+					Console.Write("Vui lòng nhập lại: ");
+					Console.ResetColor();
+				}
 			}
 		}
 
@@ -69,7 +83,9 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				catch
 				{
+					Console.ForegroundColor = ConsoleColor.DarkRed;
 					Console.Write("Không hợp lệ, vui lòng nhập lại!\n");
+					Console.ResetColor();
 					Console.Write("Ngày sinh (dd/MM/yyyy): ");
 					continue;
 				}
