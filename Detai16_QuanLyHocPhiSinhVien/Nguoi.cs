@@ -1,9 +1,9 @@
 ﻿/*
-Nhom 21, chu de 16:
-Thanh vien nhom :
-	Le Minh Kha - mssv 21110890
-	Tran Quy Thuong - mssv 21110672
-	Nguyen Dieu Huong - mssv 21110489
+Nhóm 21, chủ đề 16:
+Thành viên nhóm :
+	Lê Minh Kha - mssv 21110890
+	Trần Quý Thương - mssv 21110672
+	Nguyễn Diệu Hương - mssv 21110489
 */
 using System;
 using System.Collections.Generic;
@@ -53,7 +53,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			this.ten = "";
 			this.ngaySinh = new DateTime(1,1,1);
 			this.gioiTinh = "nam";
-			this.quocTich = "Viet Nam";
+			this.quocTich = "Việt Nam";
 			this.queQuan = new DiaChi("", "", "");
 			this.DiaChiThuongTru = new DiaChi("", "", "");
 			this.soCanCuocCongDan = "";
@@ -63,10 +63,10 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		//Methods:
 		public virtual string toString()
 		{
-			string ans = "Ho va ten:".PadRight(15) + Ten + "\nNgay sinh:".PadRight(15) + NgaySinh.ToString("dd/MM/yyyy")
-				+ "\nGioi tinh:".PadRight(15) + GioiTinh + "\nQuoc tich:".PadRight(15) + QuocTich
-				+ "\nQue quan".PadRight(15) + queQuan.toString() + "\nDC thuong tru:".PadRight(15) + diaChiThuongTru.toString()
-				+ "\nSo CCCD:".PadRight(15) + soCanCuocCongDan;
+			string ans = "Họ và tên:".PadRight(15) + Ten + "\nNgày sinh:".PadRight(15) + NgaySinh.ToString("dd/MM/yyyy")
+				+ "\nGiới tính:".PadRight(15) + GioiTinh + "\nQuốc tịch:".PadRight(15) + QuocTich
+				+ "\nQuê quán".PadRight(15) + queQuan.toString() + "\nĐC thường trú:".PadRight(15) + diaChiThuongTru.toString()
+				+ "\nSố CCCD:".PadRight(15) + soCanCuocCongDan;
 			return ans;
 		}
 
@@ -74,28 +74,28 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public virtual void nhapThongTin()
 		{
-			Console.Write("Nhap ho va ten: ");
+			Console.Write("Nhap họ và tên: ");
 			this.Ten = Console.ReadLine();
-			Console.Write("Nhap ngay sinh(dd/MM/yyyy): ");
-			this.NgaySinh = XuLiDauvao.layNgayHopLe();
-			Console.Write("Nhap gioi tinh : ");
+			Console.Write("Nhập ngày sinh(dd/MM/yyyy): ");
+			this.NgaySinh = XuLi.layNgayHopLe();
+			Console.Write("Nhap giới tính: ");
 			this.GioiTinh = Console.ReadLine();
-			Console.Write("Nhap quoc tich : ");
+			Console.Write("Nhập quốc tịch: ");
 			this.QuocTich = Console.ReadLine();
-			Console.WriteLine("Nhap que quan : ");
+			Console.WriteLine("Nhập quê quán: ");
 			string str1, str2, str3;
-			Console.Write("\tTinh/TP: "); str1 = Console.ReadLine();
-			Console.Write("\tHuyen/Quan/TP : "); str2 = Console.ReadLine();
-			Console.Write("\tXa/Phuong: "); str3 = Console.ReadLine();
+			Console.Write("\tTỉnh/TP: "); str1 = Console.ReadLine();
+			Console.Write("\tHuyện/Quận/TP: "); str2 = Console.ReadLine();
+			Console.Write("\tXã/Phường: "); str3 = Console.ReadLine();
 			this.QueQuan = new DiaChi(str1, str2, str3);
 
-			Console.WriteLine("Nhap dia chi thuong tru: ");
-			Console.Write("\tTinh/TP: "); str1 = Console.ReadLine();
-			Console.Write("\tHuyen/Quan/TP : "); str2 = Console.ReadLine();
-			Console.Write("\tXa/Phuong: "); str3 = Console.ReadLine();
+			Console.WriteLine("Nhập địa chỉ thường trú: ");
+			Console.Write("\tTỉnh/TP: "); str1 = Console.ReadLine();
+			Console.Write("\tHuyện/Quận/TP: "); str2 = Console.ReadLine();
+			Console.Write("\tXã/Phường: "); str3 = Console.ReadLine();
 			this.DiaChiThuongTru = new DiaChi(str1, str2, str3);
 
-			Console.Write("Nhap so can cuoc cong dan : ");
+			Console.Write("Nhập số căn cước công dân: ");
 			this.SoCanCuocCongDan = Console.ReadLine();
 
 		}

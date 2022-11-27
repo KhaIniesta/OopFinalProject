@@ -1,9 +1,9 @@
 ﻿/*
-Nhom 21, chu de 16:
-Thanh vien nhom :
-	Le Minh Kha - mssv 21110890
-	Tran Quy Thuong - mssv 21110672
-	Nguyen Dieu Huong - mssv 21110489
+Nhóm 21, chủ đề 16:
+Thành viên nhóm :
+	Lê Minh Kha - mssv 21110890
+	Trần Quý Thương - mssv 21110672
+	Nguyễn Diệu Hương - mssv 21110489
 */
 using System;
 using System.Collections.Generic;
@@ -49,10 +49,10 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		public override void nhapThongTin()
 		{
 			base.nhapThongTin();
-			Console.Write("Nhap so tin chi ly thuyet: "); this.soTinChilyThuyet = XuLiDauvao.laySoNguyenKhongAm();
-			Console.Write("Nhap don gia mon ly thuyet: "); this.donGiaMonLyThuyet = XuLiDauvao.LaySoThucKhongAm();
-			Console.Write("Nhap so tin chi thuc hanh: "); this.soTinChiMonThucHanh = XuLiDauvao.laySoNguyenKhongAm();
-			Console.Write("Nhap don gia mon thuc hanh: "); this.donGiaMonThucHanh = XuLiDauvao.LaySoThucKhongAm();
+			Console.Write("Nhập số tín chỉ lý thuyết: "); this.soTinChilyThuyet = XuLi.laySoNguyenKhongAm();
+			Console.Write("Nhập đơn giá môn lý thuyết: "); this.donGiaMonLyThuyet = XuLi.LaySoThucKhongAm();
+			Console.Write("Nhập số tín chỉ thực hành: "); this.soTinChiMonThucHanh = XuLi.laySoNguyenKhongAm();
+			Console.Write("Nhập đơn giá môn thực hành: "); this.donGiaMonThucHanh = XuLi.LaySoThucKhongAm();
 
 		}
 
@@ -63,17 +63,17 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public override string xuatThongTinDayDu()
 		{
-			string ans = base.xuatThongTinDayDu() + "\nSo TCLT:".PadRight(15) + SoTinChilyThuyet.ToString() + "\nSo TCTH:".PadRight(15) + SoTinChiMonThucHanh
-				+ "\nDon gia LT:".PadRight(15) + DonGiaMonLyThuyet.ToString() + "\nDon gia TH:".PadRight(15) + DonGiaMonThucHanh.ToString()
-				+ "\nTong hoc phi:".PadRight(15) + tinhTienHocPhi().ToString();
+			string ans = base.xuatThongTinDayDu() + "\nLoại SV:".PadRight(15) + "Cao đẳng" + "\nSố TCLT:".PadRight(15) + SoTinChilyThuyet.ToString() + "\nSố TCTH:".PadRight(15) + SoTinChiMonThucHanh
+				+ "\nĐơn giá LT:".PadRight(15) + String.Format("{0:n0}", DonGiaMonLyThuyet) + " VNĐ" + "\nĐơn giá TH:".PadRight(15) + String.Format("{0:n0}", DonGiaMonThucHanh) + " VNĐ"
+				+ "\nTổng học phí:".PadRight(15) + String.Format("{0:n0}", tinhTienHocPhi()) + " VNĐ";
 			return ans;
 		}
 
 		public override string xuatThongTinNganGon()
 		{
-			string ans = base.xuatThongTinNganGon() + "\nSo TCLT:".PadRight(15) + SoTinChilyThuyet.ToString()
-				+ "\nSo TCTH:".PadRight(15) + SoTinChiMonThucHanh.ToString()
-				+ "\nTong hoc phi:".PadRight(15) + tinhTienHocPhi().ToString();
+			string ans = base.xuatThongTinNganGon() + "\nSố TCLT:".PadRight(15) + SoTinChilyThuyet.ToString()
+				+ "\nSố TCTH:".PadRight(15) + SoTinChiMonThucHanh.ToString()
+				+ "\nTổng học phí:".PadRight(15) + String.Format("{0:n0}", tinhTienHocPhi()) + " VNĐ";
 			return ans;
 		}
 	}

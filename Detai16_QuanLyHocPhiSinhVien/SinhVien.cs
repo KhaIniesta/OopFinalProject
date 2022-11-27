@@ -1,9 +1,9 @@
 ﻿/*
-Nhom 21, chu de 16:
-Thanh vien nhom :
-	Le Minh Kha - mssv 21110890
-	Tran Quy Thuong - mssv 21110672
-	Nguyen Dieu Huong - mssv 21110489
+Nhóm 21, chủ đề 16:
+Thành viên nhóm :
+	Lê Minh Kha - mssv 21110890
+	Trần Quý Thương - mssv 21110672
+	Nguyễn Diệu Hương - mssv 21110489
 */
 using System;
 using System.Collections.Generic;
@@ -52,34 +52,34 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		public override void nhapThongTin()
 		{
 			base.nhapThongTin();
-			Console.Write("Ma so sinh vien: ");
+			Console.Write("Nhập MSSV: ");
 			this.MaSoSinhVien = Console.ReadLine();
-			Console.WriteLine("Nhap Khoa hoc: ");
-			Console.Write("\tNhap ten nien khoa: ");
+			Console.WriteLine("Nhập Khoá học: ");
+			Console.Write("\tNhập tên niên khoá: ");
 			this.khoaHoc.TenNienKhoa = Console.ReadLine();
-			Console.Write("\tNhap nam bat dau khoa hoc: ");
-			this.KhoaHoc.NamBatDau = XuLiDauvao.laySoNguyenKhongAm();
-			Console.Write("\tNhap nam ket thuc khoa hoc: ");
-			this.KhoaHoc.NamKetThuc = XuLiDauvao.laySoNguyenKhongAm();
-			Console.Write("Nhap tien bao hiem: ");
-			this.TienBaoHiem = XuLiDauvao.LaySoThucKhongAm();
-			Console.Write("Nhap tien phu thu: ");
-			this.PhuThu = XuLiDauvao.LaySoThucKhongAm();
+			Console.Write("\tNhập năm bắt đầu khoá học: ");
+			this.KhoaHoc.NamBatDau = XuLi.laySoNguyenKhongAm();
+			Console.Write("\tNhập năm kết thúc khoá học: ");
+			this.KhoaHoc.NamKetThuc = XuLi.laySoNguyenKhongAm();
+			Console.Write("Nhập tiền bảo hiểm: ");
+			this.TienBaoHiem = XuLi.LaySoThucKhongAm();
+			Console.Write("Nhập tiền phụ thu: ");
+			this.PhuThu = XuLi.LaySoThucKhongAm();
 		}
 
 		public virtual string xuatThongTinNganGon()
 		{
-			string ans = "Ho va ten:".PadRight(14) + Ten + "\nMSSV:".PadRight(15) + maSoSinhVien
-				+ "\nKhoa hoc:".PadRight(15) + KhoaHoc.TenNienKhoa + "\nTien BH:".PadRight(15) + TienBaoHiem.ToString()
-				+ "\nPhu thu:".PadRight(15) + phuThu.ToString();
+			string ans = "Họ và tên:".PadRight(14) + Ten + "\nMSSV:".PadRight(15) + maSoSinhVien
+				+ "\nKhoá học:".PadRight(15) + KhoaHoc.TenNienKhoa + "\nTiền BH:".PadRight(15) + String.Format("{0:n0}", TienBaoHiem) + " VNĐ"
+				+ "\nPhụ thu:".PadRight(15) + String.Format("{0:n0}", PhuThu) + " VNĐ";
 			return ans;
 		}
 
 		public virtual string xuatThongTinDayDu()
 		{
 			string ans = base.toString() + "\nMSSV:".PadRight(15) + maSoSinhVien
-				+ "\nKhoa hoc:".PadRight(15) + KhoaHoc.TenNienKhoa + "\nTien BH:".PadRight(15) + TienBaoHiem.ToString()
-				+ "\nPhu thu:".PadRight(15) + phuThu.ToString();
+				+ "\nKhoá hoc:".PadRight(15) + KhoaHoc.TenNienKhoa + "\nTiền BH:".PadRight(15) + String.Format("{0:n0}", TienBaoHiem) + " VNĐ"
+				+ "\nPhụ thu:".PadRight(15) + String.Format("{0:n0}", PhuThu) + " VNĐ";
 			return ans;
 		}
 	}
