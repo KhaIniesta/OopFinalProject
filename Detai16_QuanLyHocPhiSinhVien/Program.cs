@@ -584,7 +584,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					Line = "Học phí học kỳ: " + sv.tinhTienHocPhi().ToString() + "\n";
 				}
 			}
-			Console.WriteLine("Xuất file thông tin sinh viên thành công!");
+			if(luaChon == "1")
+				Console.WriteLine("Xuất file thông tin sinh viên thành công!");
 			return;
 		}
 		public static void TimKiem_6(List<IYeuCau> DS_SinhVien)
@@ -610,6 +611,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					input = XuLi.chuyenTiengVietKhongDau(input);
 					input = input.Trim();
 					input = input.ToLower();
+					// hieu ung tien do
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
 						if (XuLi.chuyenTiengVietKhongDau(SV.Ten).ToLower().Contains(input))
@@ -625,6 +628,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					Console.Write("Nhập MSSV cần tìm: ");
 					input = Console.ReadLine();
 					input.Trim();
+					// hieu ung tien do
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
 						if (SV.MaSoSinhVien.Trim() == input)
@@ -643,12 +648,15 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					input = XuLi.chuyenTiengVietKhongDau(input);
 					input = input.Trim();
 					input = input.ToLower();
+					// hieu ung tien do
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
+
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
-						if (XuLi.chuyenTiengVietKhongDau(SV.QueQuan.toString()).ToLower().Contains(input))
+						if ((XuLi.chuyenTiengVietKhongDau(SV.QueQuan.toString()).ToLower()).Contains(input))
 						{
 							Console.WriteLine("---");
-							XuatFileThongTinSV_ChiTiet_sub6(SV);
+							Console.WriteLine(SV.xuatThongTinDayDu());
 						}
 					}
 					break;
@@ -658,6 +666,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					Console.Write("Nhập số căn cước công dân cần tìm: ");
 					input = Console.ReadLine();
 					input.Trim();
+					// hieu ung tien do
+					HieuUng.ThanhTienDo(3, 8, 100, ConsoleColor.White);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
 						if (SV.SoCanCuocCongDan.Trim() == input)
@@ -766,7 +776,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				else
 				{
 					Console.WriteLine("Vui lòng chọn 1 số trong danh sách!");
-					Console.Write("Nhấn một phím bất kì để tiếp tục : ");
+					Console.Write("Nhấn một phím bất kì để tiếp tục: ");
 					Console.ReadKey();
 					continue;
 				}

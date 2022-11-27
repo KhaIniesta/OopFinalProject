@@ -22,15 +22,20 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.CursorVisible = false;
 			Console.ForegroundColor = color;
 			Console.SetCursorPosition(kcLeTrai + 5, kcLeTren);
+			Random rnd_time = new Random();
 			for (int i = 0; i < barSize + 1; i++)
 			{
-				Thread.Sleep(1);
+				if (i % rnd_time.Next(3, 8) == 0)
+					Thread.Sleep(25);
+				else
+					Thread.Sleep(0);
 				Console.Write(symbol[isaret]);
 				Console.SetCursorPosition(kcLeTrai, kcLeTren);
-				Console.Write("%" + (i * f).ToString("0,0"));
+				Console.Write((i * f).ToString("0,0") + "%");
 				Console.SetCursorPosition(kcLeTrai + 5 + i, kcLeTren);
 			}
 			Console.WriteLine();
+			Console.CursorVisible = true;
 			Console.ResetColor();
 		}
 	}
