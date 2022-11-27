@@ -313,7 +313,9 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					Console.Write("Số tín chỉ lý thuyết mới: ");
 					sinhVien.SoTinChilyThuyet = XuLi.laySoNguyenKhongAm();
 				}
-				Console.WriteLine("Đã thay đổi thông tin sinh viên!");
+				// hiệu ứng tiến độ
+				HieuUng.ThanhTienDo(3, 19, 100, ConsoleColor.White);
+				Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
 				Console.ReadKey();
 				return;
 			}
@@ -338,8 +340,9 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					Console.WriteLine("Đơn giá môn lý thuyết mới: ");
 					sinhVien.DonGiaMonThucHanh = XuLi.LaySoThucKhongAm();
 				}
-
-				Console.WriteLine("Đã thay đổi thông tin sinh viên!");
+				// hiệu ứng tiến độ
+				HieuUng.ThanhTienDo(3, 19, 100, ConsoleColor.White);
+				Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
 				return;
 			}
 
@@ -404,7 +407,9 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				Console.Write("Nhập phụ thu mới: ");
 				sv.PhuThu = XuLi.LaySoThucKhongAm();
 			}
-			Console.WriteLine("Đã thay đổi thông tin sinh viên!");
+			// hiệu ứng tiến độ
+			HieuUng.ThanhTienDo(3, 19, 100, ConsoleColor.White);
+			Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
 			Console.ReadKey();
 		}
 
