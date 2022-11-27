@@ -321,7 +321,6 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					sinhVien.SoTinChilyThuyet = XuLi.laySoNguyenKhongAm();
 				}
 				// hiệu ứng tiến độ
-				HieuUng.ThanhTienDo(3, khoangCach, 100, ConsoleColor.White);
 				Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
 				Console.ReadKey();
 				return;
@@ -348,7 +347,6 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					sinhVien.DonGiaMonThucHanh = XuLi.LaySoThucKhongAm();
 				}
 				// hiệu ứng tiến độ
-				HieuUng.ThanhTienDo(3, khoangCach, 100, ConsoleColor.White);
 				Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
 				return;
 			}
@@ -415,7 +413,6 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				sv.PhuThu = XuLi.LaySoThucKhongAm();
 			}
 			// hiệu ứng tiến độ
-			HieuUng.ThanhTienDo(3, khoangCach, 100, ConsoleColor.White);
 			Console.WriteLine("\nĐã thay đổi thông tin sinh viên!");
 			Console.ReadKey();
 		}
@@ -540,8 +537,9 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			if (DS_SinhVien.Count == 0)
 			{
 				Console.WriteLine("Không có sinh viên nào trong danh sách!");
-				Console.WriteLine("Ấn nút bất kì để về MENU chính : ");
-				Console.ReadKey(true);
+				Console.Write("Ấn nút bất kì để về MENU chính : ");
+				Console.ReadKey();
+				return;
 			}
 
 			HieuUng.ThanhTienDo(3, 17, 100, ConsoleColor.White);
@@ -782,9 +780,10 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			while (true)
 			{
 				Console.Clear();
-				Console.ForegroundColor = ConsoleColor.DarkYellow;
+				Console.ForegroundColor = ConsoleColor.DarkCyan;
 				Console.WriteLine("\n\tCHƯƠNG TRÌNH QUẢN LÝ SINH VIÊN CỦA TRƯỜNG ĐẠI HỌC");
 
+				Console.ForegroundColor = ConsoleColor.DarkYellow;
 				Console.WriteLine("\n\t\t1. Thêm sinh viên vào danh sách");
 				Console.WriteLine("\t\t2. Xóa sinh viên khỏi danh sách");
 				Console.WriteLine("\t\t3. Chỉnh sửa thông tin sinh viên");
