@@ -400,22 +400,23 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		{
 			if (DS_SinhVien.Count == 0)
 			{
-				Console.WriteLine("Khong co sinh vien trong danh sach.");
-				Console.Write("An mot nut bat ki de quay lai man hinh chinh : ");
+				Console.WriteLine("Không có sinh viên trong danh sách.");
+				Console.Write("Ấn một nút bất kì để quay lại màn hình chính : ");
 				Console.ReadKey();
 				return;
 			}
 
-			Console.WriteLine("Sap xep danh sach:\n");
+			Console.ForegroundColor = ConsoleColor.DarkYellow;
+			Console.WriteLine("Sắp xếp danh sách:\n");
 
-			Console.WriteLine("1. Sap xep theo ten");
-			Console.WriteLine("2. Sap xep theo ngay sinh");
-			Console.WriteLine("3. Sap xep theo mssv");
-			Console.WriteLine("4. Sap xep theo hoc phi");
-
+			Console.WriteLine("1. Sắp xếp theo tên");
+			Console.WriteLine("2. Sắp xếp theo ngày sinh");
+			Console.WriteLine("3. Sắp xếp theo MSSV");
+			Console.WriteLine("4. Sắp xếp theo học phí");
+			Console.ResetColor();
 			while (true)
 			{
-				Console.Write("Chon : ");
+				Console.Write("Chọn: ");
 				string luaChon = Console.ReadLine();
 
 				if (luaChon == "1")
@@ -489,11 +490,11 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				}
 				else
 				{
-					Console.WriteLine("Chon sai, vui long chon lai!");
+					Console.WriteLine("Chọn sai, vui lòng chọn lại!");
 					continue;
 				}
 
-				Console.WriteLine("Da sap xep, nhan nut bat ki de ve MENU chinh : ");
+				Console.WriteLine("Đã sắp xếp, nhấn nút bất kì để về MENU chính: ");
 				Console.ReadKey();
 				break;
 			}

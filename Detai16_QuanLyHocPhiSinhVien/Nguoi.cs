@@ -52,7 +52,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			demNguoi++;
 			this.ten = "";
 			this.ngaySinh = new DateTime(1,1,1);
-			this.gioiTinh = "nam";
+			this.gioiTinh = "Nam";
 			this.quocTich = "Việt Nam";
 			this.queQuan = new DiaChi("", "", "");
 			this.DiaChiThuongTru = new DiaChi("", "", "");
@@ -74,11 +74,11 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public virtual void nhapThongTin()
 		{
-			Console.Write("Nhap họ và tên: ");
+			Console.Write("Nhập họ và tên: ");
 			this.Ten = Console.ReadLine();
 			Console.Write("Nhập ngày sinh(dd/MM/yyyy): ");
 			this.NgaySinh = XuLi.layNgayHopLe();
-			Console.Write("Nhap giới tính: ");
+			Console.Write("Nhập giới tính: ");
 			this.GioiTinh = Console.ReadLine();
 			Console.Write("Nhập quốc tịch: ");
 			this.QuocTich = Console.ReadLine();
