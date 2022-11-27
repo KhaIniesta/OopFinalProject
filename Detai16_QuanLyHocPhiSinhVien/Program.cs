@@ -485,11 +485,13 @@ namespace Detai16_QuanLyHocPhiSinhVien
 		public static void TimKiem_6(List<IYeuCau> DS_SinhVien)
 		{
 			Console.Clear();
+			Console.ForegroundColor = ConsoleColor.DarkYellow;
 			Console.WriteLine("Chon điều kiện muốn tìm kiếm: ");
 			Console.WriteLine("\t1. Tìm kiếm theo tên");
 			Console.WriteLine("\t2. Tìm kiếm theo mã số sinh viên");
 			Console.WriteLine("\t3. Tìm kiếm theo quê quán");
 			Console.WriteLine("\t4. Tìm kiếm theo số căn cước công dân");
+			Console.ResetColor();
 
 			while (true)
 			{
