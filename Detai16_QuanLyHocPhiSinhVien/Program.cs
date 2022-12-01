@@ -13,9 +13,9 @@ using System.IO.Pipes;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
-
 
 namespace Detai16_QuanLyHocPhiSinhVien
 {
@@ -105,7 +105,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 						}
 					}
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau+1, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau+1, 100, ConsoleColor.Green);
 					Console.WriteLine($"\nĐã xóa {dem} sinh viên có tên {ten}");
 					Console.ReadKey();
 				}
@@ -130,7 +130,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 						}
 					}
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau+1, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau+1, 100, ConsoleColor.Green);
 					Console.WriteLine($"\nĐã xóa {dem} sinh viên có mã số sinh viên {mssv}");
 					Console.ReadKey();
 				}
@@ -155,7 +155,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 						}
 					}
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau+1, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau+1, 100, ConsoleColor.Green);
 					Console.WriteLine($"\nĐã xoá {dem} sinh viên có số căn cước công dân {cccd}");
 					Console.ReadKey();
 				}
@@ -182,7 +182,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 						}
 					}
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.Green);
 					DS_SinhVien.RemoveAt(index - 1);
 					Console.WriteLine($"\nĐã xóa sinh viên có STT {index} khỏi danh sách!");
 					Console.ReadKey();
@@ -251,10 +251,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			Console.WriteLine("\t10. Tiền bảo hiểm");
 			Console.WriteLine("\t11. Phụ thu");
 			// Tuy chinh menu cho 2 loai sinh vien
-			int khoangCach = 22; // dung cho ham hieu ung
 			if (laSinhVienTrungCap == true)
 			{
-				khoangCach = 19;
 				Console.WriteLine("\t12. Học phí học kì");
 			}
 			else
@@ -525,8 +523,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					continue;
 				}
 				// hiệu ứng tiến độ
-				HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
-				Console.WriteLine("\nĐã sắp xếp, nhấn nút bất kì để về MENU chính: ");
+				HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.Green);
+				Console.Write("\nĐã sắp xếp, nhấn nút bất kì để về MENU chính: ");
 				Console.ReadKey();
 				break;
 			}
@@ -542,7 +540,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				return;
 			}
 
-			HieuUng.ThanhTienDo(3, 17, 100, ConsoleColor.White);
+			HieuUng.ThanhTienDo(3, 17, 100, ConsoleColor.Green);
 
 			string First_Line = "|STT".PadRight(5) + "|Họ và tên".PadRight(20) + "|Giới tính".PadRight(11) + "|Ngày sinh".PadRight(12) + "|MSSV".PadRight(10)
 				+ "|Loại sinh viên".PadRight(15) + "|Niên khoá".PadRight(10) + "|Quê quán(tỉnh)".PadRight(20) + "|Tổng học phí(VNĐ)".PadRight(20) + "|";
@@ -655,7 +653,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					input = input.Trim();
 					input = input.ToLower();
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.Green);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
 						if (XuLi.chuyenTiengVietKhongDau(SV.Ten).ToLower().Contains(input))
@@ -672,7 +670,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					input = Console.ReadLine();
 					input.Trim();
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.Green);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
 						if (SV.MaSoSinhVien.Trim() == input)
@@ -692,7 +690,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					input = input.Trim();
 					input = input.ToLower();
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.Green);
 
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
@@ -710,7 +708,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 					input = Console.ReadLine();
 					input.Trim();
 					// hiệu ứng tiến độ
-					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.White);
+					HieuUng.ThanhTienDo(3, HieuUng.cachDongDau, 100, ConsoleColor.Green);
 					foreach (IYeuCau SV in DS_SinhVien)
 					{
 						if (SV.SoCanCuocCongDan.Trim() == input)
@@ -737,6 +735,8 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 		public static void SoLuongCacDoiTuong_7()
 		{
+			Console.Clear();
+			HieuUng.ThanhTienDo(3, 0, 100, ConsoleColor.Green);
 			Console.WriteLine("Đếm số lượng các đối tượng cùng loại:\n");
 			Console.WriteLine($"Địa Chỉ: {DiaChi.DemDiaChi}");
 			Console.WriteLine($"Người: {Nguoi.demNguoi}");
@@ -768,7 +768,7 @@ namespace Detai16_QuanLyHocPhiSinhVien
 				i++;
 			}
 			// hiệu ứng tiến độ
-			HieuUng.ThanhTienDo(3, 17, 100, ConsoleColor.White);
+			HieuUng.ThanhTienDo(3, 17, 100, ConsoleColor.Green);
 			Console.WriteLine("\nXuất file danh sách thành công!");
 			Console.ReadKey();
 		}

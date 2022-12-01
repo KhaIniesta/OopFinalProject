@@ -61,6 +61,12 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			this.KhoaHoc.NamBatDau = XuLi.laySoNguyenKhongAm();
 			Console.Write("\tNhập năm kết thúc khoá học: ");
 			this.KhoaHoc.NamKetThuc = XuLi.laySoNguyenKhongAm();
+			while (this.KhoaHoc.NamKetThuc <= this.KhoaHoc.NamBatDau)
+			{
+				Console.WriteLine("Năm kết thúc phải lớn hơn năm bắt đầu, vui lòng nhập lại!");
+				Console.Write("\tNhập năm kết thúc khoá học: ");
+				this.KhoaHoc.NamKetThuc = XuLi.laySoNguyenKhongAm();
+			}
 			Console.Write("Nhập tiền bảo hiểm: ");
 			this.TienBaoHiem = XuLi.LaySoThucKhongAm();
 			Console.Write("Nhập tiền phụ thu: ");

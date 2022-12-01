@@ -44,7 +44,12 @@ namespace Detai16_QuanLyHocPhiSinhVien
 			this.NamBatDau = XuLi.laySoNguyenKhongAm();
 			Console.WriteLine("\tNăm kết thúc mới: ");
 			this.NamKetThuc = XuLi.laySoNguyenKhongAm();
-
+			while (this.NamKetThuc <= this.NamBatDau)
+			{
+				Console.WriteLine("Năm kết thúc phải lớn hơn năm bắt đầu, vui lòng nhập lại!");
+				Console.WriteLine("\tNăm kết thúc mới: ");
+				this.NamKetThuc = XuLi.laySoNguyenKhongAm();
+			}
 		}
 
 		public string toString()
