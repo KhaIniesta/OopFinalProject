@@ -1,80 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Detai16_QuanLyHocPhiSinhVien.DiaChi">
-    <Position X="2" Y="4" Width="1.25" />
-    <TypeIdentifier>
-      <HashCode>AAAgAAAIAgAAAAIAAAAABAAIAAAAAAAAAAAAQAAAIkA=</HashCode>
-      <FileName>DiaChi.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Detai16_QuanLyHocPhiSinhVien.HieuUng">
-    <Position X="13" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
-      <FileName>HIeuUng.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Detai16_QuanLyHocPhiSinhVien.KhoaHoc">
-    <Position X="4.75" Y="2.5" Width="1.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAEQAACIAAAAAAAAAAhAAACAAAAAAAAAAAgAAAABA=</HashCode>
-      <FileName>KhoaHoc.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Detai16_QuanLyHocPhiSinhVien.Nguoi">
-    <Position X="0.5" Y="2" Width="1.5" />
+    <Position X="8.75" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAQAAgQAAAIAABAAAACAAAEAgUAAgAhABIAI=</HashCode>
       <FileName>Nguoi.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Detai16_QuanLyHocPhiSinhVien.Program">
-    <Position X="15.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAQAJACACAAAAAAAIIABAAAAAAAAAAACAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Detai16_QuanLyHocPhiSinhVien.SinhVien">
-    <Position X="3.5" Y="1.75" Width="1.25" />
+    <Position X="8.75" Y="6.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABgEABAIBAAQAAQAAAAAEAAAAgAAEAAAAA=</HashCode>
       <FileName>SinhVien.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Detai16_QuanLyHocPhiSinhVien.SinhVienCaoDang">
-    <Position X="8.25" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>CAAAAAgAAAAgAAAEAAAAAgCAAAAAgEAAQAgEAAAABgA=</HashCode>
-      <FileName>SinhVienCaoDang.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="Detai16_QuanLyHocPhiSinhVien.SinhVienTrungCap">
-    <Position X="8.25" Y="0.5" Width="1.5" />
-    <InheritanceLine Type="Detai16_QuanLyHocPhiSinhVien.SinhVien" ManuallyRouted="true">
-      <Path>
-        <Point X="4.75" Y="2.094" />
-        <Point X="7.792" Y="2.094" Type="JumpStart" />
-        <Point X="7.958" Y="2.094" Type="JumpEnd" />
-        <Point X="8.25" Y="2.094" />
-      </Path>
-    </InheritanceLine>
+    <Position X="4.5" Y="13.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAACAAAAgAAAAAAAEAAAEgAAABAAAA=</HashCode>
       <FileName>SinhVienTrungCap.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="Detai16_QuanLyHocPhiSinhVien.SinhVienCaoDang">
+    <Position X="12.5" Y="13.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAgAAAAgAAAEAAAAAgCAAAAAgEAAQAgEAAAABgA=</HashCode>
+      <FileName>SinhVienCaoDang.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Detai16_QuanLyHocPhiSinhVien.DiaChi">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAIAgAAAAIAAAAABAAIAAAAAAAAAAAAQAAAIkA=</HashCode>
+      <FileName>DiaChi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Detai16_QuanLyHocPhiSinhVien.HieuUng">
+    <Position X="2.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>HIeuUng.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Detai16_QuanLyHocPhiSinhVien.KhoaHoc">
+    <Position X="11.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEQAACIAAAAAAAAAAhAAACAAAAAAAAAAAgAAAABA=</HashCode>
+      <FileName>KhoaHoc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Detai16_QuanLyHocPhiSinhVien.Program">
+    <Position X="2.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAJACACAAAAAAAIIABAAAAAAAAAAACAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Detai16_QuanLyHocPhiSinhVien.XuLi">
-    <Position X="13" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="6.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAAAAAAAAAACAAAAAAAAAAIAAAAAgAAA=</HashCode>
       <FileName>XuLi.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Detai16_QuanLyHocPhiSinhVien.IYeuCau">
-    <Position X="10.5" Y="2.75" Width="1.5" />
+    <Position X="9" Y="14.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAggAAAIAAAQgAAAAAAAEAAEAgAAAABIAI=</HashCode>
       <FileName>IYeuCau.cs</FileName>

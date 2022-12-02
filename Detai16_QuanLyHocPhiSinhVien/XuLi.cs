@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Text;
+using System.Drawing;
 
 namespace Detai16_QuanLyHocPhiSinhVien
 {
@@ -97,6 +98,13 @@ namespace Detai16_QuanLyHocPhiSinhVien
 
 					continue;
 				}
+
+				if (DateTime.Compare(myDay, DateTime.Now) >= 0)
+				{
+					Console.WriteLine("Ngày sinh phải trước ngày hiện tại, vui lòng nhập lại!");
+					continue;
+				}
+
 				break;
 			}
 			return myDay;
